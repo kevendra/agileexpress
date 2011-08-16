@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:project="com.express.view.projectDetails.*"
+         xmlns:comp="com.express.view.components.*" paddingLeft="10" paddingRight="10">
+   <mx:WipeDown id="wipeDown" duration="200" />
+   <mx:Label styleName="h1" text="Request Project Access or Create a New Project"/>
+   <mx:HBox verticalAlign="bottom">
+      <mx:RadioButtonGroup id="projectButtons"/>
+      <mx:RadioButton id="newProjectButton" label="Create a New Project" group="{projectButtons}"
+                      paddingLeft="15" selected="true"/>
+      <mx:Label styleName="h2" text="or"/>
+      <mx:RadioButton id="existingProjectButton" label="Request Access to Existing Project"
+                      group="{projectButtons}" paddingLeft="15"/>
+   </mx:HBox>
+   <comp:TitledBorderBox title="Create New Project" width="900" layout="horizontal"
+      titleStyleName="titledFormTitle" visible="{newProjectButton.selected}" styleName="titledForm"
+      includeInLayout="{newProjectButton.selected}" showEffect="{wipeDown}">
+      <project:ProjectDetailsForm id="newProjectForm" width="350"/>
+
+      <mx:Text width="500">
+         <mx:htmlText>
+            <![CDATA[<ul><li>All fields except descritpion are required to create a project.</li><li>Title is the project name which all users will see and interact with.</li><li>Reference should be 2 or 3 letters. These letters will prefix all refernce numbers for the project's data such as stories and tasks</li><li>Effort units are applied as the measure of effort for Stories, all tasks are measured in hours as per scrum methodology</li></ul>]]>
+         </mx:htmlText>
+      </mx:Text>
+   </comp:TitledBorderBox>
+   <comp:TitledBorderBox title="Request Access to existing Project" width="900"
+      visible="{existingProjectButton.selected}" styleName="titledForm"
+      includeInLayout="{existingProjectButton.selected}" titleStyleName="titledFormTitle"
+      showEffect="{wipeDown}" layout="horizontal">
+      <mx:Label text="Available Project Title(s)"/>
+      <mx:VBox horizontalAlign="right">
+         <mx:List id="projectList" labelField="title" width="200" height="200" selectable="true"
+               allowMultipleSelection="true"/>
+         <mx:Button id="requestAccessButton" label="Request Access"/>
+      </mx:VBox>
+      <mx:Text width="420">
+         <mx:htmlText>
+            <![CDATA[<ul><li>Select one or more projects from the list displayed.</li><li>Once you request project access the project's administrator(s) will be emailed and asked to respond to your request.</li><li>Whether they accept your request or reject it, you will be notified by email as soon as they respond to your request.</li></ul>]]>
+         </mx:htmlText>
+      </mx:Text>
+   </comp:TitledBorderBox>
+   <mx:VBox width="50%" paddingLeft="20" visible="false" includeInLayout="false">
+      <mx:Label styleName="h2" text="Pending Access Requests"/>
+      <mx:List id="pendingList" labelField="title" width="200" height="150"/>
+      <mx:Label styleName="h2" text="Granted Access Requests"/>
+      <mx:List id="grantedList" labelField="title" width="200" height="150"/>
+   </mx:VBox>
+</mx:VBox>

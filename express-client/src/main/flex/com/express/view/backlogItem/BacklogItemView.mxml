@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml"
+         xmlns:backlogItem="com.express.view.backlogItem.*"
+      width="100%" height="100%">
+   <mx:TabNavigator id="tbViews" width="100%" height="100%" horizontalGap="10" creationPolicy="all">
+      <backlogItem:BacklogItemForm id="backlogItemForm" label="details"/>
+      <backlogItem:AcceptanceCriteriaView id="acceptanceCriteriaView" label="acceptance criteria" />
+   </mx:TabNavigator>
+   <mx:HBox width="100%" height="30" styleName="buttonBox">
+      <mx:Button id="btnSave" label="Save"/>
+      <mx:LinkButton id="btnCancel" styleName="form" label="cancel"/>
+   </mx:HBox>
+</mx:VBox>

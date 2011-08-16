@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:comp="com.express.view.components.*"
+         xmlns:security="com.express.security.*" xmlns:charts="com.express.view.charts.*"
+         height="100%" width="100%" styleName="sidePanel" hideEffect="{wipeRight}"
+         showEffect="{wipeLeft}">
+   <mx:WipeLeft id="wipeLeft" duration="200"/>
+   <mx:WipeRight id="wipeRight" duration="200"/>
+   <security:Authorize id="auth" roles="['role.iterationAdmin']" behaviour="collapse"
+                       components="{[btnEdit,lnkCreateIteration]}" type="hasAny"/>
+   <mx:HBox id="openLane" height="25" width="100%" styleName="panelHeader">
+      <mx:LinkButton id="lnkClose" icon="@Embed('/images/icons/right.png')"
+                     overIcon="@Embed('/images/icons/right-over.png')" width="16"/>
+      <mx:Label styleName="h2White" text="Iteration Summary"/>
+   </mx:HBox>
+   <mx:HBox id="manageMenuBar" styleName="menuBar" width="100%" height="30">
+      <mx:Image source="@Embed('/images/separator.gif')"/>
+      <mx:LinkButton id="lnkExport" label="Export" styleName="secondNav" enabled="false"/>
+      <mx:Image source="@Embed('/images/separator.gif')"/>
+      <comp:PopUpLabel id="printPopUp" labelText="Print" enabled="false"
+                       dataProvider="['Stories','Tasks']"
+                       paddingTop="2"/>
+   </mx:HBox>
+
+   <mx:HBox styleName="panelBox">
+      <mx:ComboBox id="cboIterations" prompt="Select an existing Iteration" width="230"
+                   labelField="title" enabled="{cboIterations.dataProvider.length > 0}"/>
+      <mx:LinkButton id="lnkCreateIteration" label="create new"
+                     styleName="form" enabled="false"/>
+   </mx:HBox>
+   <charts:BurndownChart id="burndown" width="100%" height="180"/>
+
+   <mx:HBox styleName="panelBox">
+      <mx:Label text="Start date:" fontWeight="bold" width="150"/>
+      <mx:Label id="startDate"/>
+   </mx:HBox>
+
+   <mx:HBox styleName="panelBox">
+      <mx:Label text="End date:" fontWeight="bold" width="150"/>
+      <mx:Label id="endDate"/>
+   </mx:HBox>
+
+   <mx:HBox styleName="panelBox">
+      <mx:Label text="Status:" fontWeight="bold" width="150"/>
+      <mx:Label id="iterationStatus"/>
+   </mx:HBox>
+
+   <mx:HBox styleName="panelBox">
+      <mx:Label text="Total Points:" fontWeight="bold" width="150"/>
+      <mx:Label id="totalPoints"/>
+   </mx:HBox>
+
+   <mx:HBox styleName="panelBox">
+      <mx:Label text="Task Hrs Remaining:" fontWeight="bold" width="150"/>
+      <mx:Label id="hrsRemaining"/>
+   </mx:HBox>
+
+   <mx:HBox styleName="panelBox">
+      <mx:Label text="Days remaining:" fontWeight="bold" width="150"/>
+      <mx:Label id="daysRemaining"/>
+   </mx:HBox>
+
+   <mx:HBox width="100%" styleName="panelBox">
+      <mx:Label text="Goal:" fontWeight="bold" width="115"/>
+      <mx:Text id="goal" width="100%"/>
+   </mx:HBox>
+
+   <mx:HBox styleName="buttonBox" width="100%" height="100%">
+      <mx:Button id="btnEdit" label="Edit" enabled="false"/>
+   </mx:HBox>
+</mx:VBox>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml"
+         xmlns:comp="com.express.view.components.*"
+         styleName="unpadded" verticalGap="10" width="100%" minHeight="435">
+   <mx:WipeDown id="wipeDown" duration="200"/>
+   <mx:WipeUp id="wipeUp" duration="200"/>
+   <mx:StringValidator id="summaryValidator" enabled="{!businessValueItem.visible}" required="true"
+                       property="text" source="{summary}"/>
+
+   <mx:StringValidator id="asAValidator" enabled="{businessValueItem.visible}" required="true"
+                       property="text" source="{asA}"/>
+
+   <mx:StringValidator id="iWantValidator" enabled="{businessValueItem.visible}" required="true"
+                       property="text" source="{iWant}"/>
+
+   <mx:StringValidator id="soThatValidator" enabled="{businessValueItem.visible}" required="true"
+                       property="text" source="{soThat}"/>
+
+   <mx:NumberValidator id="effortValidator" required="true" property="text" source="{effort}"
+                       minValue="0"/>
+
+   <mx:NumberValidator id="valueValidator" enabled="{businessValueItem.visible}" required="true"
+                       property="text" source="{businessValue}" minValue="0"/>
+
+   <mx:Form id="mainForm" styleName="unpadded" showEffect="{wipeUp}" width="400" height="100%" verticalGap="6">
+      <mx:FormItem id="asItem" required="true" label="As">
+         <comp:AutoCompleteTextInput id="asA" width="280" maxChars="255"/>
+      </mx:FormItem>
+      <mx:FormItem id="iWantItem" required="true" label="I want">
+         <mx:TextArea id="iWant" width="280" height="70" maxChars="255"/>
+      </mx:FormItem>
+      <mx:FormItem id="soThatItem" required="true" label="So that">
+         <mx:TextArea id="soThat" width="280" height="70" maxChars="255"/>
+      </mx:FormItem>
+      <mx:FormItem id="summaryItem" label="Summary:" required="true">
+         <mx:TextArea id="summary" width="280" height="150"/>
+      </mx:FormItem>
+      <mx:FormItem id="titleItem" label="Title">
+         <mx:TextInput id="title" width="280" maxChars="255"/>
+      </mx:FormItem>
+      <mx:FormItem id="newThemeItem" label="New Theme" visible="false" includeInLayout="false">
+         <mx:HBox>
+            <mx:TextInput id="newThemeTitle" width="150"/>
+            <mx:Button id="btnSaveTheme" label="Add"/>
+            <mx:LinkButton id="lnkCancel" label="cancel" styleName="form" width="50"/>
+         </mx:HBox>
+      </mx:FormItem>
+      <mx:FormItem id="themeItem" label="Theme(s)" showEffect="{wipeDown}" hideEffect="{wipeUp}">
+         <mx:HBox verticalAlign="top">
+            <mx:List id="lstTheme" labelField="title" width="240" height="90" selectable="true"
+                     allowMultipleSelection="true"/>
+            <mx:VBox>
+               <mx:LinkButton id="lnkClearThemes" icon=" @Embed('/images/icons/remove.png')" width="20"
+                              toolTip="clear themes" click="{lstTheme.selectedIndices = []}"/>
+               <mx:LinkButton id="lnkAddTheme" icon=" @Embed('/images/icons/add.png')" width="20"
+                              toolTip="add new theme"/>
+            </mx:VBox>
+         </mx:HBox>
+      </mx:FormItem>
+      <mx:FormItem id="businessValueItem" label="Business Value:" required="true">
+         <mx:HBox>
+            <mx:TextInput id="businessValue" width="40"/>
+            <mx:Label text="pts"/>
+         </mx:HBox>
+      </mx:FormItem>
+      <mx:FormItem id="effortItem" label="Effort:" required="true">
+         <mx:HBox>
+            <mx:TextInput id="effort" width="40"/>
+            <mx:Label id="effortUnitLabel"/>
+         </mx:HBox>
+      </mx:FormItem>
+      <mx:FormItem id="statusItem" label="Status:">
+         <mx:ComboBox id="itemStatus" prompt="-- Select --"/>
+      </mx:FormItem>
+      <mx:FormItem id="assignedToItem" label="Assigned To:">
+         <mx:HBox>
+            <mx:ComboBox id="cboAssignedTo" labelField="fullName" prompt="-- Select --"/>
+            <mx:LinkButton id="lnkClearAssignedTo" icon=" @Embed('/images/icons/remove.png')" width="20"
+                           toolTip="clear assigned to" click="{cboAssignedTo.selectedIndex = -1}"/>
+         </mx:HBox>
+      </mx:FormItem>
+   </mx:Form>
+   <mx:RichTextEditor id="descriptionEditor" height="100%" width="100%" title="Detailed Description"
+                      dropShadowEnabled="false"/>
+</mx:HBox>

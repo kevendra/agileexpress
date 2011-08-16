@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml"
+         xmlns:comp="com.express.view.components.*"
+         xmlns:security="com.express.security.*"
+         width="100%" height="100%" styleName="sidePanel"
+         hideEffect="{wipeRight}" showEffect="{wipeLeft}">
+   <mx:WipeLeft id="wipeLeft" duration="200"/>
+   <mx:WipeRight id="wipeRight" duration="200"/>
+   <security:Authorize id="auth" roles="['role.projectAdmin']" behaviour="collapse"
+                       components="{[manageMenuBar, btnEdit]}" type="hasAny"/>
+   <mx:HBox id="openLane" height="25" width="100%" styleName="panelHeader">
+      <mx:LinkButton id="lnkClose" icon="@Embed('/images/icons/right.png')"
+                     overIcon="@Embed('/images/icons/right-over.png')" width="16" />
+      <mx:Label styleName="h2White" text="Project Summary" width="100%"/>
+   </mx:HBox>
+   <mx:HBox id="manageMenuBar" styleName="menuBar" width="100%" height="30">
+      <mx:Image source="@Embed('/images/separator.gif')"/>
+      <mx:LinkButton id="lnkExport" label="Export" styleName="secondNav" enabled="false"/>
+      <mx:Image source="@Embed('/images/separator.gif')"/>
+      <comp:PopUpLabel id="managePopUp" labelText="Manage" enabled="false" paddingTop="2"
+                       dataProvider="['Workers','Themes']"/>
+   </mx:HBox>
+   <mx:HBox styleName="panelBox">
+      <mx:ComboBox id="cboProjects" width="230" labelField="title" prompt=" Open an existing Project "/>
+      <mx:LinkButton id="lnkRefresh" icon="@Embed('/images/icons/refresh.png')" width="20" toolTip="refresh project"
+            enabled="{cboProjects.selectedIndex > -1}" disabledIcon="@Embed('/images/icons/refresh-disabled.png')"/>
+   </mx:HBox>
+
+   <mx:HBox horizontalGap="10" verticalAlign="bottom" styleName="panelBox">
+      <mx:Label styleName="bannerLabel" text="or"/>
+      <mx:LinkButton id="lnkProjectAccess" styleName="form" label="Request access to a project or create one"/>
+   </mx:HBox>
+   <mx:HBox styleName="panelBox">
+      <mx:Label text="Reference:" fontWeight="bold" width="115"/>
+      <mx:Label id="reference"/>
+   </mx:HBox>
+   <mx:HBox styleName="panelBox">
+      <mx:Label text="Methodology" fontWeight="bold" width="115"/>
+      <mx:Label id="methodology"/>
+   </mx:HBox>
+   <mx:HBox styleName="panelBox">
+      <mx:Label text="Effort Unit" fontWeight="bold" width="115"/>
+      <mx:Label id="effortUnit"/>
+   </mx:HBox>
+   <mx:HBox styleName="panelBox">
+      <mx:Label text="Start Date:" fontWeight="bold" width="115"/>
+      <mx:Label id="startDate"/>
+   </mx:HBox>
+   <mx:HBox styleName="panelBox">
+      <mx:Label text="BurnUp Chart:" fontWeight="bold" width="115"/>
+      <mx:LinkButton id="lnkBurnUp" styleName="form" label="view" visible="false" width="50"/>
+   </mx:HBox>
+   <mx:HBox styleName="panelBox">
+      <mx:Label text="Velocity Chart:" fontWeight="bold" width="115"/>
+      <mx:LinkButton id="lnkVelocity" styleName="form" label="view" visible="false" width="50"/>
+   </mx:HBox>
+   <mx:HBox width="100%" styleName="panelBox">
+      <mx:Label text="Description:" fontWeight="bold" width="115"/>
+      <mx:Text id="description" width="100%"/>
+   </mx:HBox>
+   <mx:HBox styleName="panelBox">
+      <mx:Label text="Project Admins:" fontWeight="bold" width="115"/>
+      <mx:VBox>
+         <mx:Repeater id="rptAdmins">
+            <mx:Label id="manager" text="{rptAdmins.currentItem.fullName}"/>
+         </mx:Repeater>
+      </mx:VBox>
+   </mx:HBox>
+   <mx:HBox styleName="buttonBox" width="100%" height="100%">
+      <mx:Button id="btnEdit" label="Edit" enabled="false"/>
+   </mx:HBox>
+</mx:VBox>

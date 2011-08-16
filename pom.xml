@@ -1,0 +1,100 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+
+   <groupId>com.express</groupId>
+   <artifactId>express</artifactId>
+   <packaging>pom</packaging>
+   <name>express</name>
+   <version>0.8-RC1</version>
+
+   <modules>
+      <module>express-client</module>
+      <module>express-server</module>
+   </modules>
+
+   <scm>
+      <connection>scm:git:ssh://agileexpress.git.sourceforge.net/gitroot/agileexpress/agileexpress
+      </connection>
+   </scm>
+
+   <repositories>
+      <repository>
+         <id>spring-milestone</id>
+         <name>Spring Portfolio Milestone Repository</name>
+         <url>http://s3.amazonaws.com/maven.springframework.org/snapshot
+         </url>
+      </repository>
+      <repository>
+         <id>jboss</id>
+         <name>JBoss Repository</name>
+         <url>http://repository.jboss.org/maven2
+         </url>
+      </repository>
+      <repository>
+         <id>sun</id>
+         <name>Sun Repository</name>
+         <url>http://download.java.net/maven/2</url>
+         <layout>default</layout>
+      </repository>
+      <repository>
+         <id>flexmojos</id>
+         <url>http://repository.sonatype.org/content/groups/flexgroup/</url>
+      </repository>
+   </repositories>
+
+
+   <build>
+      <defaultGoal>install</defaultGoal>
+      <extensions>
+         <extension>
+            <groupId>org.apache.maven.wagon</groupId>
+            <artifactId>wagon-webdav</artifactId>
+            <version>1.0-beta-2</version>
+         </extension>
+      </extensions>
+
+      <plugins>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-release-plugin</artifactId>
+            <configuration>
+               <tagBase>http://http://biz.ricketson.org/svn/express/tags</tagBase>
+               <preparationGoals>clean verify</preparationGoals>
+            </configuration>
+         </plugin>
+
+         <plugin>
+            <artifactId>maven-deploy-plugin</artifactId>
+            <inherited>true</inherited>
+            <configuration>
+               <url>dav:http://maven.dev.renewtek.com/maven</url>
+               <repositoryId>renewtek</repositoryId>
+            </configuration>
+         </plugin>
+      </plugins>
+      <pluginManagement>
+         <plugins>
+            <plugin>
+               <artifactId>maven-idea-plugin</artifactId>
+               <configuration>
+                  <downloadSources>true</downloadSources>
+                  <downloadJavadocs>true</downloadJavadocs>
+                  <jdkLevel>1.6</jdkLevel>
+               </configuration>
+            </plugin>
+         </plugins>
+      </pluginManagement>
+   </build>
+   <properties>
+      <java.version>1.5</java.version>
+      <flex.version>3.3.0.4852</flex.version>
+      <spring.version>3.0.3.RELEASE</spring.version>
+      <springFlex.version>1.0.3.RELEASE</springFlex.version>
+      <springSecurity.version>2.0.4</springSecurity.version>
+      <blazeDS.version>3.2</blazeDS.version>
+      <hibernate.version>3.4.0.GA</hibernate.version>
+      <jetty.version>7.2.1.v20101111</jetty.version>
+   </properties>
+</project>

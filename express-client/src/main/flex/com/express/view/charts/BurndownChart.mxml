@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml"
+         width="100%" height="100%" verticalGap="3">
+   <mx:Style>
+      @font-face {
+         src: local("Arial");
+         font-family: EmbeddedArial;
+      }
+
+      .lineChart {
+         font-family: EmbeddedArial;
+         background-color:#880000;
+      }
+   </mx:Style>
+
+   <mx:Script>
+      <![CDATA[
+      import mx.charts.chartClasses.IAxis;
+      import mx.formatters.DateFormatter;
+
+      [Bindable]
+      public var dataProvider:Object;
+
+      private function formatDate(labelValue:Date, previousValue:Object, axis:IAxis):String {
+         var formatter:DateFormatter = new DateFormatter();
+         formatter.formatString = "DD/MM/YYYY";
+         return formatter.format(labelValue);
+      }
+
+      private function toggleWeekends(event:Event):void {
+         if (chkWeekends.selected) {
+            xAxis.disabledDays = [];
+         }
+         else {
+            xAxis.disabledDays = [0,6];
+         }
+      }
+      ]]>
+   </mx:Script>
+
+   <mx:HBox styleName="buttonBox" width="100%">
+      <mx:Label text="Show Weekends"/>
+      <mx:CheckBox id="chkWeekends" click="toggleWeekends(event)"/>
+   </mx:HBox>
+
+   <mx:Stroke id="lineStroke" color="#3679b0" weight="2" alpha="1"/>
+   <mx:Stroke id="axisStroke" color="#404040" alpha=".5" weight="2"/>
+   <mx:LineChart id="chart" dataProvider="{dataProvider}" styleName="lineChart" showDataTips="true"
+                 width="100%" height="100%" seriesFilters="[]">
+      <mx:horizontalAxis>
+         <mx:DateTimeAxis id="xAxis" dataUnits="days" labelUnits="days" disabledDays="[0,6]" alignLabelsToUnits="false"
+                          interval="0" labelFunction="formatDate"/>
+      </mx:horizontalAxis>
+      <mx:verticalAxis>
+         <mx:LinearAxis id="yAxis" title="Effort Remaining"/>
+      </mx:verticalAxis>
+      <mx:series>
+         <mx:LineSeries displayName="Effort Remaining" yField="taskHoursRemaining" xField="date" lineStroke="{lineStroke}"/>
+      </mx:series>
+
+      <mx:horizontalAxisRenderers>
+         <mx:AxisRenderer axis="{xAxis}" labelRotation="60">
+            <mx:axisStroke>{axisStroke}</mx:axisStroke>
+            <mx:tickStroke>{axisStroke}</mx:tickStroke>
+         </mx:AxisRenderer>
+      </mx:horizontalAxisRenderers>
+
+      <mx:verticalAxisRenderers>
+         <mx:AxisRenderer axis="{yAxis}">
+            <mx:axisStroke>{axisStroke}</mx:axisStroke>
+            <mx:tickStroke>{axisStroke}</mx:tickStroke>
+            <mx:minorTickStroke>{axisStroke}</mx:minorTickStroke>
+         </mx:AxisRenderer>
+      </mx:verticalAxisRenderers>
+
+   </mx:LineChart>
+</mx:VBox>

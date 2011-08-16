@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+   <express_user user_id="102" email="testuser1@test.com"/>
+   <express_user user_id="103" email="testuser2@test.com"/>
+   <express_user user_id="104" email="testuser3@test.com"/>
+
+   <project project_id="101"/>
+   <project project_id="102"/>
+   <project project_id="103"/>
+   
+   <project_worker worker_id="101" user_id="102" project_id="102" created_date="2009-02-03 19:28:56.943"/>
+   <project_worker worker_id="102" user_id="102" project_id="101" created_date="2009-03-03 19:28:56.943"/>
+   
+   <project_worker worker_id="103" user_id="103" project_id="101" created_date="2009-04-03 19:28:56.943"/>
+   <project_worker worker_id="104" user_id="103" project_id="103" created_date="2009-05-03 19:28:56.943"/>
+</dataset>

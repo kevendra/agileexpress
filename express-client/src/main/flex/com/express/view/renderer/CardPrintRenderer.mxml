@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" implements="mx.core.IFactory"
+         height="250" width="380" paddingLeft="10" paddingBottom="10" horizontalAlign="left"
+         horizontalScrollPolicy="off" verticalScrollPolicy="off" dataChange="init(event)" creationComplete="init(event)"
+      borderStyle="solid" borderThickness="1" borderColor="#000000">
+   <mx:Script>
+      <![CDATA[
+      import com.express.model.domain.BacklogItem;
+
+      [Bindable]
+      public var story: BacklogItem;
+
+
+      public function newInstance():* {
+         return new CardPrintRenderer();
+      }
+
+      private function init(event : Event) : void {
+         if (data) {
+            story = data as BacklogItem;
+         }
+      }
+
+      ]]>
+   </mx:Script>
+   <mx:HBox width="100%" paddingTop="5">
+      <mx:Label text="{story.reference}" styleName="printHeading" width="100%" paddingTop="3"/>
+      <mx:Label text="{story.businessValue}" styleName="printHeading" />
+   </mx:HBox>
+   <mx:Label styleName="printTitle" width="100%" text="{story.title}"/>
+   <mx:Text id="description" styleName="printText" width="100%" paddingTop="3" height="140"
+            text="{story.summary}"
+            toolTip="{story.summary}"/>
+   <mx:HBox styleName="unpadded" width="100%" verticalAlign="middle" height="35"
+            horizontalAlign="left">
+      <mx:HBox height="25" width="25" styleName="cardColourDot"
+               borderColor="{story.colour}" backgroundColor="{story.colour}"/>
+      <mx:Label text="{story.assignedToLabel}" styleName="printText" width="100%"/>
+      <mx:Label id="effort" styleName="printHeading" text="{story.effort}"/>
+   </mx:HBox>
+</mx:VBox>

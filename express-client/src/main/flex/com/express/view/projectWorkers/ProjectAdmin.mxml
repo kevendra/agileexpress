@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<mx:TabNavigator xmlns:mx="http://www.adobe.com/2006/mxml"
+                 xmlns:comp="com.express.view.components.*" xmlns:renderer="com.express.view.renderer.*"
+                 height="100%" width="100%" creationPolicy="all">
+
+   <mx:VBox label="Current Workers" width="100%" height="100%">
+      <mx:DataGrid id="grdWorkers" width="100%" height="100%">
+         <mx:columns>
+            <renderer:NestedDataGridColumn headerText="Name" dataField="worker.fullName"/>
+            <mx:DataGridColumn headerText="Project Admin" width="110" textAlign="center"
+                               itemRenderer="com.express.view.renderer.ProjectAdminCheckBoxRenderer"/>
+            <mx:DataGridColumn headerText="Iteration Admin" width="110" textAlign="center"
+                               itemRenderer="com.express.view.renderer.IterationAdminCheckBoxRenderer"/>
+            <mx:DataGridColumn editable="false" headerText="Remove" width="65">
+               <mx:itemRenderer>
+                  <mx:Component>
+                        <mx:LinkButton icon="@Embed('/images/icons/remove.png')" width="20" toolTip="remove worker"
+                                       click="dispatchEvent(new GridButtonEvent(true, true, data, GridButtonEvent.ACTION_REMOVE));event.stopImmediatePropagation();">
+                           <mx:Script>
+                              <![CDATA[ import com.express.controller.event.GridButtonEvent;]]>
+                           </mx:Script>
+                        </mx:LinkButton>
+                  </mx:Component>
+               </mx:itemRenderer>
+            </mx:DataGridColumn>
+         </mx:columns>
+      </mx:DataGrid>
+      <mx:HBox width="100%" styleName="buttonBox">
+         <mx:Button id="btnUpdate" label="Update"/>
+      </mx:HBox>
+   </mx:VBox>
+
+   <mx:VBox label="Access Requests" width="100%" height="100%">
+      <mx:DataGrid id="grdRequests" width="100%" height="100%">
+         <mx:columns>
+            <renderer:NestedDataGridColumn headerText="Requestor Name" dataField="requestor.fullName" width="420"/>
+            <mx:DataGridColumn headerText="Action" width="70">
+               <mx:itemRenderer>
+                  <mx:Component>
+                     <mx:HBox horizontalGap="4" horizontalAlign="center" click="event.stopImmediatePropagation()">
+                        <mx:Script>
+                        <![CDATA[
+                           import com.express.controller.event.GridButtonEvent;
+                        ]]>
+                        </mx:Script>
+                        <mx:LinkButton icon="@Embed('/images/icons/accept.png')" width="20"
+                                       toolTip="accept request"
+                                       click="dispatchEvent(new GridButtonEvent(true, true, data, GridButtonEvent.ACTION_ACCEPT));"/>
+                        <mx:LinkButton icon="@Embed('/images/icons/remove.png')" width="20"
+                                       toolTip="reject request"
+                                       click="dispatchEvent(new GridButtonEvent(true, true, data, GridButtonEvent.ACTION_REJECT));"/>
+                     </mx:HBox>
+                  </mx:Component>
+               </mx:itemRenderer>
+            </mx:DataGridColumn>
+         </mx:columns>
+      </mx:DataGrid>
+   </mx:VBox>
+</mx:TabNavigator>

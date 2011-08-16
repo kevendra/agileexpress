@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<mx:Form xmlns:mx="http://www.adobe.com/2006/mxml"
+         defaultButton="{btnSave}" styleName="unpadded" width="100%" height="100%" verticalGap="8">
+
+   <mx:StringValidator id="titleValidator" required="true" property="text" source="{issueTitle}"
+          trigger="{btnSave}" triggerEvent="click"/>
+   <mx:StringValidator id="descriptionValidator" required="true" property="text" source="{description}"
+          trigger="{btnSave}" triggerEvent="click"/>
+
+   <mx:FormItem label="Story" required="true" width="95%">
+      <mx:ComboBox id="cboStories" width="100%" labelField="titleLabel" prompt="-- Select --" />
+   </mx:FormItem>
+   <mx:FormItem label="or Task" required="true" width="95%">
+      <mx:ComboBox id="cboTasks" width="100%" labelField="titleLabel" prompt="-- Select --" />
+   </mx:FormItem>
+   <mx:FormItem label="Title" required="true" width="95%">
+      <mx:TextInput id="issueTitle" width="100%"/>
+   </mx:FormItem>
+   <mx:FormItem label="Description" required="true" width="95%">
+      <mx:TextArea id="description" width="100%" height="200"/>
+   </mx:FormItem>
+   <mx:FormItem label="Who is responsible?">
+      <mx:ComboBox id="lstResponsible" labelField="fullName" prompt="-- Select --"/>
+   </mx:FormItem>
+   <mx:HBox width="100%" height="100%" verticalAlign="bottom" horizontalAlign="right">
+      <mx:Button id="btnSave" label="Create"/>
+      <mx:LinkButton id="btnCancel" styleName="form" label="cancel"/>
+   </mx:HBox>
+</mx:Form>

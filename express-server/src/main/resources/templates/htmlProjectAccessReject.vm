@@ -1,0 +1,12 @@
+<style type="text/css" >body {font-family:Helvetica,Arial,Sans-Serif;color: #4d4d4d; font-size:16px;}</style>
+<img src="${headerImage}" alt="Express Delivery"/>
+<h3>Project Access request rejected</h3>
+
+<p>
+   Hi $name,<br/><br/>
+   Unfortunately your request for access to the $projectName project has been rejected by the
+   project manager. You can request access to other projects, however you will not be able to
+   access $projectName.<br/><br/>
+   Regards,<br/><br/>
+   The Express Team
+</p>

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+      This dataset includes a reference to all database tables and is
+      referenced in the base integration test class as a means to guarantee
+      all tables are cleared for every test and nothing is missed by dbunit.
+      Add tables in here as new tables are added to the app during
+      development
+   -->
+<dataset>
+   <PROJECT_WORKER/>
+   <BACKLOG/>
+   <THEME/>
+   <BACKLOG_THEME/>
+   <EXPRESS_USER/>
+   <ITERATION_HISTORY/>
+   <PROJECT/>
+   <PROJECT_HISTORY/>
+   <PROJECT_WORKER/>
+   <ITERATION/>
+   <ACCESS_REQUEST/>
+   <PERMISSIONS/>
+   <CRITERIA/>
+</dataset>

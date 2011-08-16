@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 
+                                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+    <changeSet author="adam" id="1">
+        <createTable tableName="access_request">
+            <column name="request_id" type="java.sql.Types.BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="reason" type="java.sql.Types.VARCHAR(255)"/>
+            <column name="request_date" type="java.sql.Types.TIMESTAMP"/>
+            <column name="resolved_date" type="java.sql.Types.TIMESTAMP"/>
+            <column name="status" type="java.sql.Types.INT"/>
+            <column name="version_no" type="java.sql.Types.BIGINT"/>
+            <column name="project_id" type="java.sql.Types.BIGINT"/>
+            <column name="user_id" type="java.sql.Types.BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="adam" id="2">
+        <createTable tableName="backlog">
+            <column name="backlog_id" type="java.sql.Types.BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="as_a" type="java.sql.Types.VARCHAR(255)"/>
+            <column name="business_value" type="java.sql.Types.INT"/>
+            <column name="description" type="java.sql.Types.TEXT"/>
+            <column name="effort" type="java.sql.Types.INT"/>
+            <column name="reference" type="java.sql.Types.VARCHAR(255)"/>
+            <column name="so_that" type="java.sql.Types.VARCHAR(255)"/>
+            <column name="status" type="java.sql.Types.INT"/>
+            <column name="summary" type="java.sql.Types.TEXT"/>
+            <column name="version_no" type="java.sql.Types.BIGINT"/>
+            <column name="i_want" type="java.sql.Types.VARCHAR(255)"/>
+            <column name="user_id" type="java.sql.Types.BIGINT"/>
+            <column name="iteration_id" type="java.sql.Types.BIGINT"/>
+            <column name="project_id" type="java.sql.Types.BIGINT"/>
+            <column name="parent_id" type="java.sql.Types.BIGINT"/>
+            <column name="title" type="java.sql.Types.VARCHAR(255)"/>
+            <column name="final_velocity" type="java.sql.Types.INT"/>
+            <column name="impediment_id" type="java.sql.Types.BIGINT"/>
+            <column defaultValueNumeric="0" name="task_count" type="java.sql.Types.INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="adam" id="3">
+        <createTable tableName="backlog_theme">
+            <column name="backlog_id" type="java.sql.Types.BIGINT"/>
+            <column name="theme_id" type="java.sql.Types.BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="adam" id="4">
+        <createTable tableName="criteria">
+            <column name="criteria_id" type="java.sql.Types.BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="version_no" type="java.sql.Types.BIGINT"/>
+            <column name="reference" type="java.sql.Types.VARCHAR(255)"/>
+            <column name="title" type="java.sql.Types.VARCHAR(255)"/>
+            <column name="description" type="java.sql.Types.VARCHAR(255)"/>
+            <column name="verified" type="java.sql.Types.BIT"/>
+            <column name="backlog_id" type="java.sql.Types.BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="adam" id="5">
+        <createTable tableName="express_user">
+            <column name="user_id" type="java.sql.Types.BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="active" type="java.sql.Types.BIT"/>
+            <column name="colour" type="java.sql.Types.INT"/>
+            <column name="created_date" type="java.sql.Types.TIMESTAMP"/>
+            <column name="email" type="java.sql.Types.VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="f_name" type="java.sql.Types.VARCHAR(255)"/>
+            <column name="l_name" type="java.sql.Types.VARCHAR(255)"/>
+            <column name="password" type="java.sql.Types.VARCHAR(255)"/>
+            <column name="passwd_hint" type="java.sql.Types.VARCHAR(255)"/>
+            <column name="phone1" type="java.sql.Types.VARCHAR(255)"/>
+            <column name="phone2" type="java.sql.Types.VARCHAR(255)"/>
+            <column name="version_no" type="java.sql.Types.BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="adam" id="6">
+        <createTable tableName="issue">
+            <column name="issue_id" type="java.sql.Types.BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="title" type="java.sql.Types.VARCHAR(255)"/>
+            <column name="description" type="java.sql.Types.TEXT"/>
+            <column name="end_date" type="java.sql.Types.TIMESTAMP"/>
+            <column name="start_date" type="java.sql.Types.TIMESTAMP"/>
+            <column name="iteration_id" type="java.sql.Types.BIGINT"/>
+            <column name="user_id" type="java.sql.Types.BIGINT"/>
+            <column name="version_no" type="java.sql.Types.BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="adam" id="7">
+        <createTable tableName="iteration">
+            <column name="iteration_id" type="java.sql.Types.BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="goal" type="java.sql.Types.TEXT"/>
+            <column name="end_date" type="java.sql.Types.TIMESTAMP"/>
+            <column name="start_date" type="java.sql.Types.TIMESTAMP"/>
+            <column name="title" type="java.sql.Types.VARCHAR(255)"/>
+            <column name="version_no" type="java.sql.Types.BIGINT"/>
+            <column name="project_id" type="java.sql.Types.BIGINT"/>
+            <column name="final_velocity" type="java.sql.Types.INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="adam" id="8">
+        <createTable tableName="iteration_history">
+            <column name="effort_rec_id" type="java.sql.Types.BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="record_date" type="DATE"/>
+            <column name="remaining_effort" type="java.sql.Types.INT"/>
+            <column name="iteration_id" type="java.sql.Types.BIGINT"/>
+            <column name="points_total" type="java.sql.Types.INT"/>
+            <column name="points_completed" type="java.sql.Types.INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="adam" id="9">
+        <createTable tableName="permissions">
+            <column name="permissions_id" type="java.sql.Types.BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="iteration_admin" type="java.sql.Types.BIT"/>
+            <column name="project_admin" type="java.sql.Types.BIT"/>
+            <column name="version_no" type="java.sql.Types.BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="adam" id="10">
+        <createTable tableName="project">
+            <column name="project_id" type="java.sql.Types.BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="description" type="java.sql.Types.TEXT"/>
+            <column name="reference" type="java.sql.Types.VARCHAR(255)"/>
+            <column name="start_date" type="java.sql.Types.TIMESTAMP"/>
+            <column name="title" type="java.sql.Types.VARCHAR(255)"/>
+            <column name="version_no" type="java.sql.Types.BIGINT"/>
+            <column name="effort_unit" type="java.sql.Types.VARCHAR(255)"/>
+            <column defaultValueNumeric="0" name="story_count" type="java.sql.Types.INT"/>
+            <column defaultValueNumeric="0" name="methodology" type="java.sql.Types.INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="adam" id="11">
+        <createTable tableName="project_history">
+            <column name="project_status_id" type="java.sql.Types.BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="record_date" type="DATE"/>
+            <column name="points_total" type="java.sql.Types.INT"/>
+            <column name="points_completed" type="java.sql.Types.INT"/>
+            <column name="project_id" type="java.sql.Types.BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="adam" id="12">
+        <createTable tableName="project_worker">
+            <column name="worker_id" type="java.sql.Types.BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="created_date" type="java.sql.Types.TIMESTAMP"/>
+            <column name="version_no" type="java.sql.Types.BIGINT"/>
+            <column name="permissions_id" type="java.sql.Types.BIGINT"/>
+            <column name="user_id" type="java.sql.Types.BIGINT"/>
+            <column name="project_id" type="java.sql.Types.BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="adam" id="13">
+        <createTable tableName="sequence_list">
+            <column name="name" type="java.sql.Types.VARCHAR(255)"/>
+            <column name="next_value" type="java.sql.Types.INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="adam" id="14">
+        <createTable tableName="theme">
+            <column name="theme_id" type="java.sql.Types.BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="version_no" type="java.sql.Types.BIGINT"/>
+            <column name="title" type="java.sql.Types.VARCHAR(255)"/>
+            <column name="description" type="java.sql.Types.VARCHAR(255)"/>
+            <column name="project_id" type="java.sql.Types.BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="adam" id="15">
+        <createIndex indexName="fk29672a9472ebe779" tableName="access_request" unique="false">
+            <column name="user_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="adam" id="16">
+        <createIndex indexName="fk29672a94989c091b" tableName="access_request" unique="false">
+            <column name="project_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="adam" id="17">
+        <createIndex indexName="fk1619acdd5c1d2c01" tableName="backlog" unique="false">
+            <column name="parent_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="adam" id="18">
+        <createIndex indexName="fk1619acdd72ebe779" tableName="backlog" unique="false">
+            <column name="user_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="adam" id="19">
+        <createIndex indexName="fk1619acdd7d2fc65b" tableName="backlog" unique="false">
+            <column name="iteration_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="adam" id="20">
+        <createIndex indexName="fk1619acdd989c091b" tableName="backlog" unique="false">
+            <column name="project_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="adam" id="21">
+        <createIndex indexName="fk_issue_backlog" tableName="backlog" unique="false">
+            <column name="impediment_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="adam" id="22">
+        <createIndex indexName="backlog_theme_fk" tableName="backlog_theme" unique="false">
+            <column name="theme_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="adam" id="23">
+        <createIndex indexName="theme_backlog_fk" tableName="backlog_theme" unique="false">
+            <column name="backlog_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="adam" id="24">
+        <createIndex indexName="criteria_backlog_fk" tableName="criteria" unique="false">
+            <column name="backlog_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="adam" id="25">
+        <createIndex indexName="express_user_email_key" tableName="express_user" unique="true">
+            <column name="email"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="adam" id="26">
+        <createIndex indexName="fk_iteration_issue" tableName="issue" unique="false">
+            <column name="iteration_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="adam" id="27">
+        <createIndex indexName="fk_user_issue" tableName="issue" unique="false">
+            <column name="user_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="adam" id="28">
+        <createIndex indexName="fk2f1cfebd989c091b" tableName="iteration" unique="false">
+            <column name="project_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="adam" id="29">
+        <createIndex indexName="fk79b9d4ec7d2fc65b" tableName="iteration_history" unique="false">
+            <column name="iteration_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="adam" id="30">
+        <createIndex indexName="fk_proj_proj_status" tableName="project_history" unique="false">
+            <column name="project_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="adam" id="31">
+        <createIndex indexName="fk5b315384695124bb" tableName="project_worker" unique="false">
+            <column name="permissions_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="adam" id="32">
+        <createIndex indexName="fk5b31538472ebe779" tableName="project_worker" unique="false">
+            <column name="user_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="adam" id="33">
+        <createIndex indexName="fk5b315384989c091b" tableName="project_worker" unique="false">
+            <column name="project_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="adam" id="34">
+        <createIndex indexName="theme_project_fk" tableName="theme" unique="false">
+            <column name="project_id"/>
+        </createIndex>
+    </changeSet>
+</databaseChangeLog>

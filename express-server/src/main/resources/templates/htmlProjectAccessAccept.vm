@@ -1,0 +1,15 @@
+<style type="text/css" >body {font-family:Helvetica,Arial,Sans-Serif;color: #4d4d4d; font-size:16px;}</style>
+<img src="${headerImage}" alt="Express Delivery"/>
+<h3>Project Access request accepted</h3>
+
+<p>
+   Hi $name,<br/><br/>
+   Congratulations.you have been granted access to the $projectName project. When you
+   next login to Express you will see the project in the drop down list in the projects
+   section. Select $projectName in order to see Iterations and Backlog items.
+
+   Select an iteration to manage it's contents. If you are developing on an iteration
+   you can go to the virtual wall with that iteration selected and manage the story tasks.<br/><br/>
+   Regards,<br/><br/>
+   The Express Team
+</p>

@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml"
+      width="100%" height="100%">
+   <mx:DataGrid id="grdThemes" editable="true" variableRowHeight="true" width="100%" height="100%">
+      <mx:columns>
+         <mx:DataGridColumn id="colId" editable="false" dataField="id" width="30"/>
+         <mx:DataGridColumn editable="true" dataField="title"/>
+         <mx:DataGridColumn editable="true" dataField="description" wordWrap="true" editorUsesEnterKey="true" itemEditor="mx.controls.TextArea"/>
+         <mx:DataGridColumn editable="false" headerText="Actions" width="70">
+            <mx:itemRenderer>
+            <mx:Component>
+            <mx:HBox horizontalGap="4" horizontalAlign="center" click="event.stopImmediatePropagation()">
+               <mx:Script>
+               <![CDATA[
+                  import com.express.controller.event.GridButtonEvent;
+               ]]>
+               </mx:Script>
+               <mx:LinkButton icon="@Embed('/images/icons/remove.png')" width="20" toolTip="remove theme"
+                  click="dispatchEvent(new GridButtonEvent(true, true, data, GridButtonEvent.ACTION_REMOVE));"/>
+            </mx:HBox>
+            </mx:Component>
+            </mx:itemRenderer>
+         </mx:DataGridColumn>
+      </mx:columns>
+   </mx:DataGrid>
+   <mx:HBox styleName="buttonBox" width="100%" height="30">
+      <mx:Button id="btnAdd" label="Add"/>
+      <mx:Button id="btnSave" label="Save"/>
+      <mx:LinkButton id="btnCancel" styleName="form" label="cancel"/>
+   </mx:HBox>
+</mx:VBox>

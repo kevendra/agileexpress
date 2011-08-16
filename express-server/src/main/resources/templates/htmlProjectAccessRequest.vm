@@ -1,0 +1,13 @@
+<style type="text/css" >body {font-family:Helvetica,Arial,Sans-Serif;color: #4d4d4d; font-size:16px;}</style>
+<img src="${headerImage}" alt="Express Delivery"/>
+<h3>Project Access request</h3>
+
+<p>
+   Hi $name,<br/><br/>
+   <strong>'$applicantName'</strong> has requested access to your project <strong>'$projectName'</strong>.
+   Please go to the project admin screen and either accept or reject them as a developer. Once you
+   take an action the applicant will be notified by email and allowed access to the project if you
+   accept them.<br/><br/>
+   Regards,<br/><br/>
+   The Express Team
+</p>

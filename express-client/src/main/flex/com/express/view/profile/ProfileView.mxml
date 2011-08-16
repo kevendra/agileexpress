@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml"
+         xmlns:form="com.express.view.form.*"
+         xmlns:view="com.express.view.*"
+         xmlns:comp="com.express.view.components.*"
+         width="100%" height="100%" paddingLeft="20" paddingTop="20" >
+   <mx:StringValidator id="firstNameValidator" required="false" minLength="3" source="{firstName}" property="text"/>
+   <mx:StringValidator id="lastNameValidator" required="false" minLength="3" source="{lastName}" property="text"/>
+   <mx:PhoneNumberValidator id="phone1Validator" required="false" source="{phone1}" property="text"/>
+   <mx:PhoneNumberValidator id="phone2Validator" required="false" source="{phone2}" property="text"/>
+   <comp:TitledBorderBox width="900" title="User Details" layout="horizontal" styleName="titledForm"
+         titleStyleName="titledFormTitle">
+      <mx:Form defaultButton="{updateButton}">
+         <mx:FormItem label="First Name">
+            <mx:TextInput id="firstName" width="200"/>
+         </mx:FormItem>
+         <mx:FormItem label="Last Name">
+            <mx:TextInput id="lastName" width="200"/>
+         </mx:FormItem>
+         <mx:FormItem label="Phone (main)">
+            <mx:TextInput id="phone1" width="200"/>
+         </mx:FormItem>
+         <mx:FormItem label="Phone (other)">
+            <mx:TextInput id="phone2" width="200"/>
+         </mx:FormItem>
+         <mx:FormItem label="Wall Colour">
+            <mx:ColorPicker id="colour"/>
+         </mx:FormItem>
+         <mx:HBox verticalAlign="bottom">
+            <mx:Button id="updateButton" label="Update details"/>
+            <mx:Button id="changePwdButton" label="Change password"/>
+            <mx:LinkButton id="resetButton" styleName="form" label="reset"/>
+         </mx:HBox>
+      </mx:Form>
+      <mx:Text width="420">
+         <mx:htmlText>
+            <![CDATA[<ul><li>These fields are optional. They are not required but filling them in will improve the experience for you and the other people on your project team(s).</li><li>If you don't fill in your first and last name then your email (username) with the domain name removed will appear in place of your real name.</li><li>The <i>wall colour</i> is the colour Express will tag your stories and tasks with. If you don't choose one, we will assign you one randomly so that others on the team can tell your cards apart.</li></ul>]]>
+         </mx:htmlText>
+      </mx:Text>
+
+   </comp:TitledBorderBox>
+
+   <mx:TitleWindow id="changePasswordPanel" title="Change Password" includeInLayout="false"
+      visible="false" isPopUp="true" styleName="mainPopup">
+      <mx:Form defaultButton="{updatePwdButton}">
+         <mx:FormItem required="true" label="Current Password">
+            <mx:TextInput id="currentPassword" displayAsPassword="true" width="200"/>
+         </mx:FormItem>
+         <mx:FormItem required="true" label="New Password">
+            <mx:TextInput id="password" displayAsPassword="true" width="200"/>
+         </mx:FormItem>
+         <mx:FormItem required="true" label="Confirm New Password">
+            <mx:TextInput id="confirmPassword" displayAsPassword="true" width="200"/>
+         </mx:FormItem>
+         <mx:HBox styleName="buttonBox" width="100%">
+            <mx:Button id="updatePwdButton" label="Update"/>
+            <mx:LinkButton id="cancelPwdButton" styleName="form" label="cancel"/>
+         </mx:HBox>
+      </mx:Form>
+   </mx:TitleWindow>
+   <mx:Script><![CDATA[
+      import com.express.view.*;
+      ]]></mx:Script>
+</mx:VBox>

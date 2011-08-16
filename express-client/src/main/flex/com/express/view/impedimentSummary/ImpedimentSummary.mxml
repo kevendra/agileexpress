@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:comp="com.express.view.components.*"
+         xmlns:security="com.express.security.*" xmlns:charts="com.express.view.charts.*"
+         styleName="sidePanel" hideEffect="{wipeRight}"
+         showEffect="{wipeLeft}">
+   <mx:WipeLeft id="wipeLeft" duration="200"/>
+   <mx:WipeRight id="wipeRight" duration="200"/>
+   <mx:HBox id="openLane" height="25" width="100%" styleName="panelHeader">
+      <mx:LinkButton id="lnkClose" icon="@Embed('/images/icons/right.png')"
+                     overIcon="@Embed('/images/icons/right-over.png')" width="16"/>
+      <mx:Label styleName="h2White" text="Impediments"/>
+   </mx:HBox>
+   <mx:DataGrid id="lstImpediments" styleName="impedimentList" width="100%" height="100%"
+                doubleClickEnabled="true">
+      <mx:columns>
+         <mx:DataGridColumn headerText="Title" dataField="title"/>
+         <mx:DataGridColumn headerText="Status" dataField="statusLabel"/>
+      </mx:columns>
+   </mx:DataGrid>
+   <mx:HBox styleName="buttonBox" width="100%" height="35">
+      <mx:Button id="btnAddImpediment" label="Raise An Impediment" enabled="false"/>
+   </mx:HBox>
+</mx:VBox>

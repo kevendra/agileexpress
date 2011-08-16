@@ -1,0 +1,1 @@
+package com.express.domain;public enum Methodology {   SCRUM("Scrum"), XP("XP");   private final String title;   Methodology(String title) {      this.title = title;   }   public String getTitle() {      return title;   }   public static Methodology getMethodology(String title) {      return "XP".equals(title) ? XP : SCRUM;   }}

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:flex="http://www.springframework.org/schema/flex"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+                           http://www.springframework.org/schema/aop
+                           http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context-2.5.xsd
+                           http://www.springframework.org/schema/flex
+                           http://www.springframework.org/schema/flex/spring-flex-1.0.xsd">
+
+   <context:annotation-config/>
+   <context:component-scan base-package="com.express.web"/>
+
+   <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
+   <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>
+   <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping" p:order="2">
+      <!-- specific url mappings for controllers not defined with annotations -->
+      <property name="mappings">
+         <props>
+            <!-- <prop key="/">xyzController</prop> -->
+         </props>
+
+      </property>
+   </bean>
+
+   <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+      <property name="mediaTypes">
+         <map>
+            <entry key="atom" value="application/atom+xml"/>
+            <entry key="html" value="text/html"/>
+            <entry key="json" value="application/json"/>
+         </map>
+      </property>
+      <property name="viewResolvers">
+         <list>
+            <bean name="xmlViewResolver" class="org.springframework.web.servlet.view.XmlViewResolver"
+                  p:location="/WEB-INF/views.xml"/>
+            <bean id="viewResolver"
+                  class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+                  p:prefix="/WEB-INF/jsp/" p:suffix=".jsp"/>
+
+         </list>
+      </property>
+   </bean>
+
+   <flex:message-broker>
+      <flex:mapping pattern="/messagebroker/*"/>
+      <flex:secured per-client-authentication="true"></flex:secured>
+   </flex:message-broker>
+
+   <!-- Expose services for BlazeDS remoting -->
+   <flex:remoting-destination ref="userManager" destination-id="userService" channels="my-amf"/>
+   <flex:remoting-destination ref="projectManager" destination-id="projectService" channels="my-amf"/>
+   <flex:remoting-destination ref="iterationManager" destination-id="iterationService" channels="my-amf"/>
+   <flex:remoting-destination ref="backlogItemManager" destination-id="backlogItemService" channels="my-amf"/>
+
+   <!--<bean id="multipartResolver"-->
+         <!--class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>-->
+</beans>

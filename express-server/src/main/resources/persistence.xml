@@ -1,0 +1,24 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
+   <persistence-unit name="miPU" transaction-type="RESOURCE_LOCAL">
+      <class>com.express.domain.AcceptanceCriteria</class>
+      <class>com.express.domain.BacklogItem</class>
+      <class>com.express.domain.DailyIterationStatusRecord</class>
+      <class>com.express.domain.DailyProjectStatusRecord</class>
+      <class>com.express.domain.Iteration</class>
+      <class>com.express.domain.Project</class>
+      <class>com.express.domain.User</class>
+      <class>com.express.domain.AccessRequest</class>
+      <class>com.express.domain.ProjectWorker</class>
+      <class>com.express.domain.Permissions</class>
+      <class>com.express.domain.Theme</class>
+      <class>com.express.domain.Issue</class>
+
+      
+      <properties>
+         <property name="hibernate.generate_statistics" value="false" />
+         <property name="hibernate.hbm2ddl.auto" value="validate" />
+         <property name="hibernate.show_sql" value="false" />
+         <property name="hibernate.format_sql" value="false" />
+      </properties>
+   </persistence-unit>
+</persistence>

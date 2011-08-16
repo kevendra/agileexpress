@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services-config>
+   <services>
+      <service-include file-path="remoting-config.xml" />
+   </services>
+
+<!--   <channels>-->
+<!--      <channel-definition id="secure-amf" class="mx.messaging.channels.SecureAMFChannel">-->
+   <!--
+      <endpoint url="https://{server.name}:{server.port}/{context.root}/messagebroker/amf"
+   -->
+<!--            class="flex.messaging.endpoints.AMFEndpoint" />-->
+<!--         <properties>-->
+<!--            <polling-enabled>false</polling-enabled>-->
+<!--         </properties>-->
+<!--      </channel-definition>-->
+<!--   </channels>-->
+   <channels>
+      <channel-definition id="my-amf" class="mx.messaging.channels.AMFChannel">
+         <endpoint url="http://{server.name}:{server.port}/{context.root}/data/messagebroker/amf"
+            class="flex.messaging.endpoints.AMFEndpoint" />
+         <properties>
+            <polling-enabled>false</polling-enabled>
+         </properties>
+      </channel-definition>
+   </channels>
+   
+   <security>
+      <!--<login-command class="com.express.security.SpringSecurityLoginCommand" server="Tomcat">-->
+         <!--<per-client-authentication>true</per-client-authentication>-->
+      <!--</login-command>-->
+      <security-constraint id="roleuser">
+         <auth-method>Custom</auth-method>
+         <roles>
+            <role>ROLE_USER</role>
+            <role>ROLE_ADMIN</role>
+         </roles>
+      </security-constraint>
+   </security>
+   
+   <system>
+      <manageable>true</manageable>
+      <redeploy>
+         <enabled>true</enabled>
+         <watch-interval>20</watch-interval>
+         <watch-file>{context.root}/WEB-INF/flex/services-config.xml
+         </watch-file>
+         <watch-file>{context.root}/WEB-INF/flex/proxy-config.xml
+         </watch-file>
+         <touch-file>{context.root}/WEB-INF/web.xml</touch-file>
+      </redeploy>
+   </system>
+   <logging>
+<!--        <target class="flex.messaging.log.ServletLogTarget" level="Warn">-->
+      <target class="flex.messaging.log.ConsoleTarget" level="info">
+         <properties>
+            <prefix>[BlazeDS]</prefix>
+            <includeDate>false</includeDate>
+            <includeTime>false</includeTime>
+            <includeLevel>true</includeLevel>
+            <includeCategory>false</includeCategory>
+         </properties>
+<!--         <filters>-->
+<!--            <pattern>Endpoint.*</pattern>-->
+<!--            <pattern>Service.*</pattern>-->
+<!--            <pattern>Configuration</pattern>-->
+<!--         </filters>-->
+      </target>
+   </logging>
+</services-config>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+                xmlns:view="com.express.view.*"
+                xmlns:backlogItem="com.express.view.backlogItem.*"
+                xmlns:iteration="com.express.view.iteration.*"
+                xmlns:comp="com.express.view.components.*"
+                xmlns:project="com.express.view.projectDetails.*"
+                xmlns:workers="com.express.view.projectWorkers.*"
+                xmlns:login="com.express.view.login.*"
+                xmlns:adobe="com.adobe.components.*"
+                xmlns:projectAccess="com.express.view.projectAccess.*"
+                xmlns:backlog="com.express.view.backlog.*"
+                xmlns:profile="com.express.view.profile.*"
+                xmlns:register="com.express.view.register.*"
+                xmlns:scrumWall="com.express.view.scrumWall.*"
+                xmlns:projectSummary="com.express.view.projectSummary.*"
+                xmlns:iterationSummary="com.express.view.iterationSummary.*"
+                xmlns:impedimentSummary="com.express.view.impedimentSummary.*"
+                layout="absolute" horizontalAlign="left" height="100%" width="100%"
+                creationComplete="facade.startUp(this)">
+
+   <mx:Style source="styles/yflexskin.css"/>
+   <mx:Style source="styles/style.css"/>
+
+   <mx:Iris id="irisIn" scaleXFrom="0" scaleYFrom="0" scaleXTo="1" scaleYTo="1" duration="200"/>
+   <mx:Iris id="irisOut" scaleXFrom="1" scaleYFrom="1" scaleXTo="0" scaleYTo="0" duration="200"/>
+   <mx:WipeDown id="wipeDown" duration="200"/>
+   <mx:WipeUp id="wipeUp" duration="200"/>
+   <mx:WipeRight id="wipeRight" duration="200"/>
+
+   <mx:Script>
+      <![CDATA[
+      import com.earthbrowser.ebutils.MacMouseWheelHandler;
+      import com.express.ApplicationFacade;
+
+      private var facade:ApplicationFacade = ApplicationFacade.getInstance();
+      ]]>
+   </mx:Script>
+   <mx:VBox width="100%" height="100%" verticalScrollPolicy="off">
+      <mx:HBox width="100%" height="50" horizontalGap="0" styleName="banner">
+         <mx:Image source="@Embed('/images/logo.gif')" height="50" width="220"/>
+         <mx:HBox id="menu" height="29" styleName="menu" visible="false">
+            <mx:Image source="@Embed('/images/separator.gif')"/>
+            <mx:Repeater id="rptMenu">
+               <mx:LinkButton id="menuItem" label="{rptMenu.currentItem.label}"
+                              data="{rptMenu.currentItem}" styleName="menuItem"/>
+               <mx:Image source="@Embed('/images/separator.gif')"/>
+            </mx:Repeater>
+         </mx:HBox>
+         <mx:HBox paddingTop="2" paddingLeft="10">
+            <comp:MessageBox id="messageBox" showEffect="{wipeRight}"/>
+         </mx:HBox>
+         <mx:HBox id="topBox" styleName="topBox" width="100%" height="100%" visible="false">
+            <mx:Image source="@Embed('/images/icons/user.png')"/>
+            <mx:Label id="lblUser" styleName="welcome"/>
+            <mx:LinkButton id="btnLogout" styleName="logout" overSkin="{null}" label="logout"/>
+         </mx:HBox>
+      </mx:HBox>
+
+      <mx:HBox id="main" width="100%" styleName="main">
+         <mx:ViewStack id="views" width="100%" minHeight="{this.height - 65}">
+            <login:LoginView id="loginView" width="100%" label=""/>
+            <backlog:BacklogView id="backlogView" label="Backlog" width="100%" height="100%"/>
+            <scrumWall:ScrumWallView id="wallView" label="Wall" width="100%" height="100%"/>
+            <profile:ProfileView id="profileView" width="100%" label="Profile"/>
+            <projectAccess:ProjectAccessForm id="projectAccessForm" height="100%"/>
+            <register:RegisterView id="registerView"/>
+         </mx:ViewStack>
+         <mx:VBox id="sideTabs" width="40" height="100%" styleName="sideTabs" visible="false">
+            <mx:LinkButton id="lnkProjectSummary" styleName="sideLink" width="35"
+                           icon="@Embed('/images/side-tab-project.png')" toolTip="Project Summary"
+                           overIcon="@Embed('/images/side-tab-project-over.png')"/>
+            <mx:LinkButton id="lnkIterationSummary" styleName="sideLink" width="35"
+                           icon="@Embed('/images/side-tab-iteration.png')"
+                           toolTip="Iteration  Summary" rollOverColor="#FFFFFF"
+                           overIcon="@Embed('/images/side-tab-iteration-over.png')"/>
+            <mx:LinkButton id="lnkImpedimentSummary" styleName="sideLink" width="35"
+                           icon="@Embed('/images/side-tab-impediments.png')"
+                           toolTip="Iteration  Summary" rollOverColor="#FFFFFF"
+                           overIcon="@Embed('/images/side-tab-impediments-over.png')"/>
+         </mx:VBox>
+      </mx:HBox>
+   </mx:VBox>
+   <projectSummary:ProjectSummary top="58" right="0" id="projectSummary" width="350" height="550"
+                                  includeInLayout="false" visible="false"/>
+   <iterationSummary:IterationSummary top="58" right="0" id="iterationSummary" width="350"
+                                      height="550" includeInLayout="false" visible="false"/>
+   <impedimentSummary:ImpedimentSummary top="58" right="0" id="impedimentSummary" width="350"
+                                        height="550" includeInLayout="false" visible="false"/>
+</mx:Application>

@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml">
+   <mx:DataGrid id="grdCriteria" editable="true" width="100%" height="100%">
+      <mx:columns>
+         <mx:DataGridColumn editable="true" dataField="reference" headerText="Ref" width="100"/>
+         <mx:DataGridColumn editable="true" dataField="title" headerText="Title"/>
+         <mx:DataGridColumn editable="true" dataField="description" headerText="Description"/>
+         <mx:DataGridColumn editable="true" dataField="verified" headerText="Verified" width="70"
+                            rendererIsEditor="true" textAlign="center" editorDataField="selected"
+                            itemRenderer="mx.controls.CheckBox">
+         </mx:DataGridColumn>
+         <mx:DataGridColumn editable="false" headerText="Actions">
+            <mx:itemRenderer>
+            <mx:Component>
+            <mx:HBox horizontalGap="4" horizontalAlign="center" click="event.stopImmediatePropagation()">
+               <mx:Script>
+               <![CDATA[
+                  import com.express.controller.event.GridButtonEvent;
+               ]]>
+               </mx:Script>
+               <mx:LinkButton icon="@Embed('/images/icons/remove.png')" width="20" toolTip="remove criteria"
+                  click="dispatchEvent(new GridButtonEvent(true, true, data, GridButtonEvent.ACTION_REMOVE));"/>
+            </mx:HBox>
+            </mx:Component>
+            </mx:itemRenderer>
+         </mx:DataGridColumn>
+      </mx:columns>
+   </mx:DataGrid>
+   <mx:HBox styleName="buttonBox" width="100%">
+      <mx:Button id="btnAdd" label="Add"/>
+   </mx:HBox>
+   <mx:Script><![CDATA[
+      import com.express.controller.event.GridButtonEvent;
+      ]]></mx:Script>
+</mx:VBox>

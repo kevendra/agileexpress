@@ -1,0 +1,17 @@
+<style type="text/css" >body {font-family:Helvetica,Arial,Sans-Serif;color: #4d4d4d; font-size:16px;}</style>
+<img src="${headerImage}" alt="Express Delivery"/>
+<h3>Hi ${name},</h3>
+
+<p>
+   Thank you for registering with Express. Your account has been successfully created. In order to 
+   use your account you must first activate it so that we can verify your email address. To do so 
+   please <a href="${url}">click here</a>.
+</p>
+<p>
+   Thanks again for choosing to use Express, we hope you enjoy working with our product. Of course
+   Express is an agile project too. We are developing features iteratively and are keen to get
+   feedback from the client, you! Please use our forum and bug tracking tools to lodge your feedback
+   or feel free to <a href="mailto:$adminEmail">email</a> us.<br/><br/>
+   Regards,<br/><br/>
+   The Express Team
+</p>

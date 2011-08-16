@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+   <link type="text/css" href="css/express.css" rel="stylesheet"/>
+   <script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+   <script type="text/javascript" src="js/express.js"></script>
+   <title>Express | FAQ</title>
+   <script type="text/javascript">
+      $(function() {
+
+         $("#faqs h4").live("click", function() {
+            $(this).next("div:visible").slideUp();
+            $(this).next("div:not(:visible)").slideDown();
+         });
+      });
+   </script>
+</head>
+
+<body id="support">
+<div id="banner"></div>
+	<ul class="mainNav">
+   	<li>
+         <a href="index.html">Home</a>
+      </li>
+      <li>
+         <div class="selectedLeft"></div>
+         <div class="selected">FAQ</div>
+         <div class="selectedRight"></div>
+      </li>
+      <li>
+         <a href="documentation.html">Documentation</a>
+      </li>
+      <li>
+         <a href="express.html">Application</a>
+      </li>
+   </ul>
+   <div id="main" >
+   <div class="section">
+      <h1>Frequently Asked Questions</h1>
+
+      <div id="faqs">
+      	<h4>What prerequisites are required to install Express ?</h4>
+         <div>
+            <p>
+               Express comes as a Java war file. It can be deployed to any servlet container
+               such as Tomcat or Jetty. You can download Tomcat <a href="http://tomcat.apache.org/download-60.cgi">here</a>.
+               Express requires a relational database, and the current default database is Postgres. You can download
+               the latest version <a href="http://www.postgresql.org/download/">here</a>. Configuration details can be
+               found in the Express documentation page.
+            </p>
+         </div>
+         <h4>What is the wall view ?</h4>
+         <div>
+            <p>
+               Wall view provides a virtual project wall where Stories remain on the left and
+               their Tasks can be dragged and dropped through swim lanes from OPEN to IN
+               PROGRESS to TEST and finally CLOSED. The project team can quickly get and idea
+               of what is being worked on and what remains to be worked on by checking the
+               virtual project wall.
+            </p>
+         </div>
+         <h4>
+            I have created Stories and moved them into an Iteration, why cant I move them
+            through the swim lanes ?
+         </h4>
+         <div>
+            <p>
+               In Scrum stories are static. They are broken down into Tasks which can then be
+               progressed though the various development stages. You can create Tasks on the
+               virtual wall by clicking the create icon on the top right of the Story or if
+               you go the the backlog view you can create Tasks by clicking the add icon
+               against that story in the datagrid. For developers who don't want to have
+               multiple Tasks you simply create a single child Task for the Story to
+               progress along the wall. When all Tasks are in test or closed, the story is
+               progressed automatically to the same state. When any Task is in progress, the
+               story is in progress.
+            </p>
+         </div>
+         <h4>How do I edit a Story or Task ?</h4>
+         <div>
+            <p>
+               In the backlog view double clicking on a Story or Task will open it in edit
+               mode. The Window can be resized to whatever size is convenient and it will
+               remember it's size so that al other Stries or Tasks are opened in the same
+               sized window for that session.
+            </p>
+         </div>
+         <h4>How do I move Stories into and out of an Iteration ?</h4>
+         <div>
+            <p>
+               In the backlog view you can drag a story from the Product Backlog into the
+               currently selected Iteration. You can select multiple Stories and drag them
+               all at once or you can bring the Stories over one at a time. Generally
+               Iteration managers will drag uncompleted stories back into the Product Backlog
+               if the are not 100% complete at the end of an Iteration. Express remebers the
+               progress of all the Stroy's Tasks and when the Story is dragged into a new
+               Iteration they remain where they were at the end of the previous one.
+            </p>
+         </div>
+         <h4>How do I start work on a Task ?</h4>
+         <div>
+            <p>
+               In the wall view you just drag the Task card from OPEN into IN PROGRESS Express
+               will popup a message box to ask you to assign the Task to someone and you will
+               be selected by default. If you want to assign it to someone else then just
+               select them from the list.
+            </p>
+         </div>
+         <h4>What is a Burndown ?</h4>
+         <div>
+            <p>
+               A burndown chart shows you at a glance how many hours are left to complete an
+               Iteration. Over time the chart progresses toward zero as developers reduce
+               the number of hours remaining on the Tasks they are working on. Often there
+               are spikes in the burndown when the team reaslises tasks which they forgot
+               when they did the initial estimation or they elicit new requirements or details
+               from the product owner. We don't worry too much about this, we
+               just keep tracking it, the shape of the burndown can tell a lot about how the
+               team and product owner are working together.
+            </p>
+         </div>
+      </div>
+   </div>
+</div>
+<div id="footer">&copy; Copyright 2009-10 Adam Boas&nbsp;&nbsp;&nbsp;</div>
+</body>
+</html>

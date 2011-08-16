@@ -1,0 +1,42 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+   <bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+      <property name="resourceLoaderPath" value="classpath:templates"/>
+   </bean>
+
+
+   <bean id="mailer" class="org.springframework.mail.javamail.JavaMailSenderImpl"
+         p:host="${mail.host}" p:username="${mail.username}" p:password="${mail.password}"
+         p:port="${mail.port}">
+      <property name="javaMailProperties">
+         <props>
+            <prop key="mail.smtp.localhost">localhost</prop>
+            <prop key="mail.smtp.auth">${mail.authenticate}</prop>
+            <prop key="mail.smtp.starttls.enable">true</prop>
+            <prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
+            <prop key="mail.smtp.socketFactory.port">${mail.port}</prop>
+         </props>
+      </property>
+   </bean>
+
+   <bean id="notificationFactory" class="com.express.service.notification.NotificationFactoryImpl"
+         p:velocityEngine-ref="velocityEngine" p:from="${mail.from}"
+         p:mailheaderImage="${applicationUrl}/images/mail_header.png"
+         p:registrationConfirmSubject="${mail.subject.registrationconfirmation}"
+         p:registrationConfirmHtmlTemplate="${mail.html.registrationConfirmation.template}"
+         p:passwordReminderSubject="${mail.subject.passwordReminder}"
+         p:passwordReminderHtmlTemplate="${mail.html.passwordReminder.template}"
+         p:projectAccessRequestSubject="${mail.subject.projectAccessRequest}"
+         p:projectAccessRequestHtmlTemplate="${mail.html.projectAccessRequest.template}"
+         p:projectAccessAcceptSubject="${mail.subject.projectAccessAccept}"
+         p:projectAccessAcceptHtmlTemplate="${mail.html.projectAccessAccept.template}"
+         p:projectAccessRejectSubject="${mail.subject.projectAccessReject}"
+         p:projectAccessRejectHtmlTemplate="${mail.html.projectAccessReject.template}"/>
+</beans>

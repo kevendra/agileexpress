@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml" creationComplete="init()">
+   <mx:Script>
+      <![CDATA[
+      import com.express.navigation.MenuItem;
+
+      import mx.core.Container;
+      import mx.core.Repeater;
+
+      [Bindable]
+      public var secondaryNavBox : Container;
+      [Bindable]
+      public var mainMenu : Repeater;
+      [Bindable]
+      public var secondaryNav : Repeater;
+      [Bindable]
+      public var timer : Timer;
+      [Bindable]
+      public var linkStyleName : String;
+
+      private var _outFlag : Boolean = true;
+
+      private function init() : void {
+         timer.addEventListener(TimerEvent.TIMER_COMPLETE, handleTimerComplete);
+      }
+
+      private function handleRollOver(event : Event) : void {
+         var menuItem : MenuItem = data as MenuItem;
+         if (secondaryNavBox != null) {
+            if (menuItem.children != null) {
+               secondaryNavBox.visible = true;
+               secondaryNav.dataProvider = menuItem.children;
+            }
+            else {
+               secondaryNavBox.visible = false;
+            }
+         }
+         _outFlag = false;
+         timer.stop();
+      }
+
+      private function handleRollOut(event : Event) : void {
+         _outFlag = true;
+         timer.reset();
+         timer.start();
+      }
+
+      private function handleTimerComplete(event : TimerEvent) : void {
+         if (_outFlag) {
+            if (secondaryNavBox != null) {
+               secondaryNavBox.visible = false;
+            }
+            else {
+               if (this.parent != null) {
+                  this.parent.visible = false;
+               }
+            }
+         }
+      }
+
+      private function handleClick(event : MouseEvent) : void {
+         if ((data as MenuItem).children == null) {
+            var clickEvent : MouseEvent = new MouseEvent(MouseEvent.CLICK);
+            clickEvent.relatedObject = menuItem;
+            mainMenu.dispatchEvent(clickEvent);
+         }
+      }
+      ]]>
+   </mx:Script>
+
+   <mx:LinkButton id="menuItem" styleName="{this.linkStyleName}" height="100%" width="100%"
+                  label="{this.label}" data="{this.data}" click="handleClick(event)"
+                  rollOver="handleRollOver(event)" rollOut="handleRollOut(event)"/>
+</mx:HBox>

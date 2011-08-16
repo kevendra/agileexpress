@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" href="css/express.css" rel="stylesheet"/>
+<script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="js/express.js"></script>
+   <title>Express | Documentation</title>
+</head>
+
+<body id="pricing">
+<div id="banner"></div>
+	<ul class="mainNav">
+   	<li>
+         <a href="index.html">Home</a>
+      </li>
+      <li>
+         <a href="faq.html">FAQ</a>
+      </li>
+      <li>
+         <div class="selectedLeft"></div>
+         <div class="selected">Documentation</div>
+         <div class="selectedRight"></div>
+      </li>
+      <li>
+         <a href="express.html">Application</a>
+      </li>
+   </ul>
+   <div id="main" >
+   <div class="section">
+         <h1>Documentation</h1>
+
+            <h3>Install</h3>
+            <p>
+               Download the latest war file and deply it to your favourite servlet container. The latest build
+               is tested on Tomcat 6.0.20 but there is no reason why it would have problems on any 2.4 compliant
+               servlet container.
+               Because of the way the flex aplication swf is compiled, you will need to deploy express to the root 
+               of your domain. This means that if you are simply deploying to the localhost in the Tomcat webapps 
+               directory you will need to unzip the application war and rename it ROOT.
+            </p>
+            <p>
+               Express requires a relational database. By default it uses postgres and was developed against 8.4.
+               It will work against most relational databases as persistence is done via JPA and database management
+               through Liquibase. In order to use a different database, at this stage, you will need to add the 
+               database driver to the lib directory and change the properties accordingly (see config section below).
+            </p>
+            <h3>Configure</h3>
+            <p>
+               Most configuration is done in the application.properties file which is located in the exploded war
+               file under theWEB-INF/classes folder.
+               At a minimum you will need to add the properties for your smtp server. Without an smtp server you cannot
+               register as express sends a confirmation email to ensure that the user has a valid email address. You 
+               will also need to change the entry for the applicationUrl to your domain name as the link in the c
+               onfirmation email uses this.
+            </p>
+            <h3>Use</h3>
+            <h4>Register</h4>
+            <p>
+               The fist thing you will need to do is register an user account. User registration can be reached from
+               the link on the login page. An email, password, and password hint is all that is required but additional
+               details such as the colour you want to see for your stories / tasks, your full name and contact phone
+               can be added also to help others in your team(s) identify you.
+            </p>
+            <p>
+                 After registering an email with a confirmation link will be sent to the email address provided. this link
+                 will need to be used in order to activate the account. After this is done you can login.
+            </p>
+            <h4>Create a project</h4>
+            <p>
+               On your first login you will be directed to the project creation / access page. Here you can create a project
+               or request to join an existing one. Your request will be emailed to the project manager(s) immediately but 
+               you will not actually get acess to their project until they have acted on the request. If you create a new
+               project it will be setup immediately and you can go to work on it straight away.
+            </p>
+            <p>
+               When you create a project you automatically become it's manager. This means you recieve all requests to join
+               the project and can approve or reject them.
+            </p>
+      </div>
+</div>
+<div id="footer">&copy; Copyright 2009-10 Adam Boas&nbsp;&nbsp;&nbsp;</div>
+</body>
+</html>

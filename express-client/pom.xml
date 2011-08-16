@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+
+   <parent>
+      <artifactId>express</artifactId>
+      <groupId>com.express</groupId>
+      <version>0.8-RC1</version>
+   </parent>
+
+   <artifactId>express-client</artifactId>
+   <packaging>swf</packaging>
+   <name>express client</name>
+   <description>Flex client for express</description>
+
+   <build>
+      <sourceDirectory>src/main/flex</sourceDirectory>
+      <plugins>
+         <plugin>
+            <groupId>org.sonatype.flexmojos</groupId>
+            <artifactId>flexmojos-maven-plugin</artifactId>
+            <version>3.7.1</version>
+            <extensions>true</extensions>
+            <configuration>
+               <services>${project.parent.basedir}/express-server/src/main/webapp/WEB-INF/flex/services-config.xml</services>
+               <locales>
+                  <locale>en_US</locale>
+               </locales>
+               <contextRoot>/</contextRoot>
+               <sourceFile>Express.mxml</sourceFile>
+               <targetPlayer>10.0.22</targetPlayer>
+               <sourcePaths>
+                  <sourcePath>src/main/flex</sourcePath>
+                  <sourcePath>src/main/resources</sourcePath>
+               </sourcePaths>
+               <licenses>
+                  <flexbuilder3>${flexLicense}</flexbuilder3>
+               </licenses>
+            </configuration>
+            <dependencies>
+               <dependency>
+                  <groupId>com.adobe.flex</groupId>
+                  <artifactId>compiler</artifactId>
+                  <version>${flex.version}</version>
+                  <type>pom</type>
+               </dependency>
+               <dependency>
+                  <groupId>com.adobe.flex</groupId>
+                  <artifactId>license</artifactId>
+                  <version>${flex.version}</version>
+               </dependency>
+            </dependencies>
+         </plugin>
+      </plugins>
+   </build>
+
+   <dependencies>
+      <dependency>
+         <groupId>com.adobe.flex.framework</groupId>
+         <artifactId>flex-framework</artifactId>
+         <version>${flex.version}</version>
+         <type>pom</type>
+         <exclusions>
+            <exclusion>
+               <groupId>com.adobe.flex.framework</groupId>
+               <artifactId>playerglobal</artifactId>
+            </exclusion>
+         </exclusions>
+      </dependency>
+
+      <dependency>
+         <groupId>com.adobe.flex.framework</groupId>
+         <artifactId>playerglobal</artifactId>
+         <version>${flex.version}</version>
+         <classifier>10</classifier>
+         <type>swc</type>
+      </dependency>
+
+      <dependency>
+         <groupId>org.puremvc</groupId>
+         <artifactId>puremvc</artifactId>
+         <version>2.0.4</version>
+         <type>swc</type>
+      </dependency>
+
+      <dependency>
+         <groupId>com.adobe.flex</groupId>
+         <artifactId>datavisualization</artifactId>
+         <version>${flex.version}</version>
+         <type>swc</type>
+      </dependency>
+
+      <dependency>
+         <groupId>com.adobe.flex</groupId>
+         <artifactId>datavisualization</artifactId>
+         <version>${flex.version}</version>
+         <type>rb.swc</type>
+      </dependency>
+
+      <!--<dependency>-->
+      <!--<groupId>org.efflex</groupId>-->
+      <!--<artifactId>effects</artifactId>-->
+      <!--<version>0.0.1</version>-->
+      <!--<type>swc</type>-->
+      <!--</dependency>-->
+
+      <!-- flexmojos Unit testing support -->
+      <!--<dependency>-->
+      <!--<groupId>org.sonatype.flexmojos</groupId>-->
+      <!--<artifactId>flexmojos-unittest-support</artifactId>-->
+      <!--<version>3.1.0</version>-->
+      <!--<type>swc</type>-->
+      <!--<scope>test</scope>-->
+      <!--</dependency>-->
+
+   </dependencies>
+
+</project>

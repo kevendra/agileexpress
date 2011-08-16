@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" title="Choose Developer"
+                layout="horizontal" styleName="mainPopup">
+   <mx:ComboBox id="cboAssignedTo" labelField="fullName"/>
+   <mx:Button id="btnAssign" label="assign"/>
+</mx:TitleWindow>

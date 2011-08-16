@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:form="com.express.view.form.*"
+         paddingLeft="10" paddingRight="10" paddingTop="10"
+         xmlns:component="com.express.view.components.*">
+   <mx:StringValidator id="firstNameValidator" required="false" minLength="3" source="{firstName}"
+                       property="text" trigger="{btnSave}" triggerEvent="click"/>
+   <mx:StringValidator id="lastNameValidator" required="false" minLength="3" source="{lastName}"
+                       property="text" trigger="{btnSave}" triggerEvent="click"/>
+   <mx:PhoneNumberValidator id="phone1Validator" required="false" source="{phone1}" property="text"
+                            trigger="{btnSave}" triggerEvent="click"/>
+   <mx:PhoneNumberValidator id="phone2Validator" required="false" source="{phone2}"
+                            property="text" trigger="{btnSave}" triggerEvent="click"/>
+   <mx:EmailValidator id="emailValidator" required="true" source="{email}" property="text"
+                      trigger="{btnSave}" triggerEvent="click"/>
+   <mx:StringValidator id="passwordValidator" minLength="6" source="{password}" property="text"
+                       trigger="{btnSave}" triggerEvent="click"/>
+   <mx:StringValidator id="passwordHintValidator" required="true" source="{hint}" property="text"
+                       trigger="{btnSave}" triggerEvent="click"/>
+   <mx:StringValidator id="confirmPasswordValidator" minLength="6" source="{confirmPassword}"
+                       property="text" trigger="{btnSave}" triggerEvent="click"/>
+   <component:TitledBorderBox layout="horizontal" title="Login Details" width="900" styleName="titledForm"
+         titleStyleName="titledFormTitle">
+      <mx:Form labelWidth="200" width="450" defaultButton="{btnSave}">
+         <mx:FormItem required="true" label="Email (username)">
+            <mx:TextInput id="email" width="200"/>
+         </mx:FormItem>
+         <mx:FormItem required="true" label="Password">
+            <mx:TextInput id="password" displayAsPassword="true" width="200"/>
+         </mx:FormItem>
+         <mx:FormItem required="true" label="Confirm Password">
+            <mx:TextInput id="confirmPassword" displayAsPassword="true" width="200"/>
+         </mx:FormItem>
+         <mx:FormItem label="Password Hint" required="true">
+            <mx:TextInput id="hint" width="200"/>
+         </mx:FormItem>
+      </mx:Form>
+      <mx:Text width="420">
+         <mx:htmlText>
+            <![CDATA[<ul><li>These fields are required so that you can login and use Express.</li><li>Your password is enrypted with a one way encryption algorithm and cannot be recoveredif you forget it. Because of this we require a password hint. If you forget your password you can request that we email you the hint.</li></ul>]]>
+         </mx:htmlText>
+      </mx:Text>
+   </component:TitledBorderBox>
+
+   <component:TitledBorderBox layout="horizontal" title="User Details" width="900" styleName="titledForm"
+         titleStyleName="titledFormTitle">
+      <mx:Form labelWidth="200" width="450" defaultButton="{btnSave}">
+         <mx:FormItem label="First Name">
+            <mx:TextInput id="firstName" width="200"/>
+         </mx:FormItem>
+         <mx:FormItem label="Last Name">
+            <mx:TextInput id="lastName" width="200"/>
+         </mx:FormItem>
+         <mx:FormItem label="Phone (main)">
+            <mx:TextInput id="phone1" width="200"/>
+         </mx:FormItem>
+         <mx:FormItem label="Phone (other)">
+            <mx:TextInput id="phone2" width="200"/>
+         </mx:FormItem>
+         <mx:FormItem label="Wall Colour">
+            <mx:ColorPicker id="colour"/>
+         </mx:FormItem>
+      </mx:Form>
+      <mx:Text width="420">
+         <mx:htmlText>
+            <![CDATA[<ul><li>These fields are optional. They are not required but filling them in will improve the experience for you and the other people on your project team(s).</li><li>If you don't fill in your first and last name then your email (username) with the domain name removed will appear in place of your real name.</li><li>The <i>wall colour</i> is the colour Express will tag your stories and tasks with. If you don't choose one, we will assign you one randomly so that others on the team can tell your cards apart.</li></ul>]]>
+         </mx:htmlText>
+      </mx:Text>
+   </component:TitledBorderBox>
+   <mx:HBox width="900" horizontalAlign="right" verticalAlign="bottom">
+      <mx:Button id="btnSave" label="Register"/>
+      <mx:LinkButton id="btnCancel" styleName="form" label="cancel"/>
+   </mx:HBox>
+</mx:VBox>
+   

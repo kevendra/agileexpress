@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" showEffect="{wipeRight}" hideEffect="{wipeLeft}">
+   <mx:WipeRight id="wipeRight" duration="200"/>
+   <mx:WipeLeft id="wipeLeft" duration="200"/>
+
+</mx:VBox>

@@ -1,0 +1,599 @@
+/* CSS file */
+
+Application {
+   paddingTop: 0;
+   paddingLeft: 0;
+   paddingRight: 0;
+   paddingBottom: 0;
+   verticalGap: 0;
+   backgroundColor:#ffffff;
+   backgroundAlpha:1.0;
+}
+
+.banner {
+   backgroundImage: Embed(source = "/images/nav-bg.png");
+   backgroundSize:"100%";
+}
+
+Label.welcome {
+   fontSize: 16;
+   fontFamily:"News Gothic MT,Trebuchet MS";
+   color:#ffffff;
+}
+
+.topBox {
+   horizontalAlign:right;
+   verticalAlign:top;
+   horizontalGap:3;
+   paddingTop:2;
+}
+
+.login {
+   paddingTop: 0;
+   paddingLeft: 0;
+   paddingRight: 0;
+   paddingBottom: 0;
+   fontWeight: normal;
+   text-decoration: underline;
+   fontFamily:"News Gothic MT,Trebuchet MS";
+}
+
+.menu {
+   color: #ffffff;
+   fontFamily:"News Gothic MT,Trebuchet MS";
+   disabledColor:#382d37;
+   horizontalGap:0;
+   paddingTop:0;
+   paddingBottom:0;
+}
+
+.menuItem {
+   color: #ffffff;
+   fontWeight: normal;
+   fontSize: 16;
+   cornerRadius: 0;
+   paddingTop: 5;
+   selectionColor: #ab9578;
+   disabledColor: #4d4d4d;
+}
+
+.bannerLabel {
+   color:#63410B;
+}
+
+.bannerLink {
+   color:#63410B;
+   text-decoration:underline;
+}
+
+.headingBox {
+   paddingTop: 15;
+   paddingRight: 0;
+}
+
+.heading {
+   paddingTop: 10;
+   fontSize: 20;
+   fontWeight: normal;
+   textAlign: center;
+   color: #FFFFFF;
+}
+
+.main {
+   borderSkin: ClassReference('com.express.skin.HaloBorderWithImagePositioning');
+   background-position: center, top;
+   backgroundImage: Embed(source = "/images/main-bg.jpg");
+   backgroundColor:#ffffff;
+   paddingRight:0;
+   paddingLeft:10;
+   paddingBottom:5;
+   horizontalGap:0;
+}
+
+.mainLoggedIn {
+   backgroundColor:#ffffff;
+   paddingRight:0;
+   paddingLeft:10;
+   paddingBottom:5;
+   horizontalGap:0;
+}
+
+Label.h1 {
+   fontSize: 22;
+   fontWeight: normal;
+}
+
+Label.h1White {
+   fontSize: 22;
+   color: #FFFFFF;
+}
+
+Label.h2 {
+   fontSize: 16;
+}
+
+Label.h3 {
+   fontSize: 14;
+   fontWeight: bold;
+}
+
+Label.h2White {
+   fontSize: 14;
+   color: #FFFFFF;
+   textAlign:center;
+}
+
+Label.storyHead {
+   fontSize: 16;
+   textAlign:center;
+}
+
+Label.backlogTitle {
+   font-size:18;
+}
+
+AdvancedDataGrid {
+   alternatingItemColors:#f9f7f3,#ffffff;
+}
+
+.productGridBox {
+   paddingLeft:5;
+   paddingRight:10;
+}
+
+.iterationGridBox {
+   paddingLeft:10;
+}
+
+.wallHeaders {
+   horizontalGap:0;
+   verticalAlign:middle;
+   borderSides:bottom;
+   borderThickness: 1;
+   borderColor: #B7BABC;
+   borderStyle:solid;
+}
+.wallHeader {
+   borderThickness: 0;
+   horizontalAlign: left;
+   verticalAlign: middle;
+   backgroundImage:Embed(source = "/images/table-heading-bg.png");
+   backgroundSize:"100%";
+}
+
+.panelHeader {
+   borderThickness: 0;
+   horizontalAlign: left;
+   verticalAlign: middle;
+   backgroundImage:Embed(source = "/images/heading-bg.png");
+   backgroundSize:"100%";
+}
+
+.thinBorder {
+   borderStyle: solid;
+   borderThickness: 1;
+   cornerRadius: 2;
+}
+
+.unpadded {
+   paddingBottom: 0;
+   paddingLeft: 0;
+   paddingRight: 0;
+   paddingTop: 0;
+}
+
+.titledForm {
+   paddingBottom: 10;
+   paddingLeft: 10;
+   paddingRight: 10;
+   paddingTop: 40;
+   backgroundColor:#ffffff;
+   borderColor:#3679b0;
+   borderThickness:2px;
+   cornerRadius:4;
+}
+
+.titledFormTitle {
+   fontWeight:normal;
+   fontSize:16px;
+   color:#382d37;
+}
+
+.navLinkBox {
+   paddingLeft: 10;
+   paddingTop: 0;
+   paddingRight: 10;
+   horizontal-align: center;
+}
+
+.messageBox {
+   borderStyle: solid;
+   borderThickness: 2;
+   cornerRadius: 3;
+   borderColor: #009900;
+   backgroundColor: #ffffff;
+   paddingBottom: 2;
+   paddingLeft: 5;
+   paddingRight: 5;
+   paddingTop: 2;
+   fontSize:12;
+}
+
+.messageBoxError {
+   borderStyle: solid;
+   borderThickness: 2;
+   cornerRadius: 3;
+   borderColor: #990000;
+   backgroundColor: #ffffff;
+   paddingBottom: 2;
+   paddingLeft: 5;
+   paddingRight: 5;
+   paddingTop: 2;
+   fontSize:12;
+}
+
+.messageText {
+   fontSize:12;
+}
+
+ToolTip {
+   fontSize: 12;
+}
+
+.storyView {
+   paddingBottom: 0;
+   paddingLeft: 0;
+   paddingRight: 0;
+   paddingTop: 0;
+   borderStyle: solid;
+   borderThickness: 1;
+   borderColor: #B7BABC;
+   borderSides: "top, bottom";
+   horizontalGap: 0;
+   verticalGap: 0;
+}
+
+Alert {
+   borderColor: #3679b0;
+   backgroundColor: #ffffff;
+   color: #000000;
+   titleStyleName: "alertTitle";
+   paddingBottom: 10;
+}
+
+.alertTitle {
+   color: #ffffff;
+}
+
+.whiteTitle {
+   color: #153F63;
+   backgroundColor:#B08136;
+   fontSize:16;
+}
+
+TextInput {
+   borderStyle: solid;
+   borderColor: #3679b0;
+   cornerRadius: 1;
+   focusAlpha: 0.05;
+   focusFillColors: #FFFFFF, #DCEBFE;
+   focusFillAlphas: 1, 1
+}
+
+List {
+   borderStyle: solid;
+   borderColor: #3679b0;
+   cornerRadius: 1;
+   focusAlpha: 0.05;
+   focusFillColors: #FFFFFF, #DCEBFE;
+   focusFillAlphas: 1, 1
+}
+
+.wallHolder {
+   paddingBottom: 0;
+   paddingLeft: 0;
+   paddingRight: 0;
+   paddingTop: 0;
+   vertical-align:top;
+   horizontalGap:0;
+}
+
+TextArea {
+   borderStyle: solid;
+   borderColor: #3679b0;
+   cornerRadius: 1;
+   focusAlpha: 0.05;
+   focusFillColors: #FFFFFF, #DCEBFE;
+   focusFillAlphas: 1, 1
+}
+
+.wallList {
+   borderThickness:0;
+}
+
+.cardHeading {
+    paddingTop:2;
+   fontWeight:bold;
+   fontSize:12;
+   horizontal-align:left;
+}
+
+.cardSummaryText {
+   fontSize:10;
+   horizontal-align:left;
+   paddingTop:3px;
+}
+
+.cardText {
+   fontSize:10;
+   horizontal-align:left;
+}
+
+StoryCard {
+   borderSkin: ClassReference('com.express.skin.HaloBorderWithImagePositioning');
+   backgroundImage: Embed("/images/story-bg.png");
+   background-position: left, top;
+   backgroundAlpha: 1.0;
+   paddingRight:2px;
+   paddingLeft:10px;
+   paddingBottom:5px;
+   verticalGap: 0;
+   borderThickness:0;
+}
+
+StoryCard.storyImpeded {
+   backgroundImage: Embed("/images/story-impeded-bg.png");
+}
+
+.storyCardHeaderBox {
+   paddingLeft:0;
+   paddingRight:0;
+   paddingTop:2;
+   paddingBottom:0;
+   verticalAlign:middle;
+   horizontalGap:0;
+}
+
+.storyText {
+   fontSize:12;
+   paddingTop:4px;
+}
+
+.storyQuickMenu {
+   paddingTop:2px;
+   paddingRight:0;
+}
+
+WallRow {
+   horizontalGap:0;
+   horizontalAlign:center;
+   borderStyle: solid;
+   paddingTop:3px;
+   paddingBottom:3px;
+   borderThickness: 1;
+   borderColor: #B7BABC;
+   borderSides:"bottom";
+}
+
+CardGrid {
+   horizontalGap:3px;
+   verticalGap:3px;
+}
+
+TaskCard {
+   borderSkin: ClassReference('com.express.skin.HaloBorderWithImagePositioning');
+   backgroundImage: Embed("/images/task-bg.png");
+   background-position: left, top;
+   verticalGap: 0;
+   borderThickness:0;
+   horizontal-align:left;
+   paddingLeft:10px;
+   paddingRight:2px;
+}
+
+TaskCard.taskImpeded {
+   backgroundImage: Embed("/images/task-impeded-bg.png");
+}
+
+.cardColourDot {
+   paddingBottom: 0;
+   paddingLeft: 0;
+   paddingRight: 0;
+   paddingTop: 0;
+   cornerRadius: 15;
+   borderThickness: 1;
+   borderStyle: solid;
+}
+
+ScrumWallView {
+   borderThickness: 1;
+   borderColor: #B7BABC;
+   borderStyle:solid;
+}
+
+.titledBorder {
+   color:#3679b0;
+   fontSize:18;
+}
+
+.printHeading {
+   fontWeight:bold;
+   fontSize:24;
+   horizontal-align:left;
+}
+
+.printTitle {
+   fontSize:20;
+   fontWeight:bold;
+   textAlign:center;
+}
+
+.printText {
+   fontSize:18;
+   textAlign:left;
+}
+
+.page {
+   borderThickness:0;
+}
+
+.accordionHeader {
+   fontSize:14;
+}
+
+.buttonBox {
+   paddingRight:5px;
+   paddingBottom:5px;
+   horizontalAlign:right;
+   verticalAlign:bottom;
+}
+
+LinkButton.form {
+   color:#3679b0;
+   text-decoration:underline;
+   fontWeight:normal;
+   fontSize:14;
+   paddingBottom:0;
+   paddingLeft:0;
+   paddingRight:0;
+}
+
+LinkButton.logout {
+   color:#ffffff;
+   textRollOverColor:#aaaaaa;
+   rollOverColor:#404040;
+   text-decoration:underline;
+   fontWeight:normal;
+   fontSize:14;
+   paddingBottom:0;
+   paddingLeft:0;
+   paddingRight:0;
+}
+
+LinkButton.secondNav {
+   color:#404040;
+   text-decoration:none;
+   fontWeight:normal;
+   fontSize:14;
+   paddingBottom:0;
+   paddingLeft:0;
+   paddingRight:0;
+}
+
+.storyGrid {
+   paddingTop:0;
+   paddingBottom:0;
+   borderThickness:1;
+}
+
+.mainPopup {
+   paddingTop:35;
+   paddingBottom:10;
+   paddingLeft:10;
+   paddingRight:10;
+   borderColor: #3679b0;
+   title-style-name: whiteTitle;
+   borderStyle:outset;
+   borderThickness:0;
+   cornerRadius:0;
+   borderSkin:Embed(source = "/images/panel-bg.png",
+   scaleGridLeft=44,
+   scaleGridRight=360,
+   scaleGridTop=54,
+   scaleGridBottom=219);
+}
+
+TitleWindow {
+   closeButtonSkin: Embed("/images/icons/close.png");
+   /* Set values from defaults.css to null. */
+   closeButtonDisabledSkin: ClassReference(null);
+   closeButtonDownSkin: ClassReference(null);
+   closeButtonOverSkin: Embed("/images/icons/close-over.png");
+   closeButtonUpSkin: ClassReference(null);
+}
+
+.confirm {
+   borderColor: #3679b0;
+   borderAlpha:1.0;
+   title-style-name:alertTitle;
+   
+}
+
+.loginForm {
+   backgroundImage:Embed(source = "/images/login-form-bg.png");
+   paddingLeft:70;
+   paddingRight:70;
+   paddingTop:15;
+}
+
+.menuBar {
+   backgroundColor:#f7f6f3;
+   borderStyle:solid;
+   borderThickness:1;
+   border-sides:bottom;
+   paddingTop:2;
+   paddingRight:5px;
+   paddingBottom:0;
+   horizontalAlign:right;
+}
+
+.themeHeader {
+   fontSize:14;
+   color:#382d37;
+}
+
+.swimLane {
+   horizontalAlign:center;
+   borderSides:"left,right";
+   borderThickness:1;
+   borderStyle:solid;
+}
+
+.popupList {
+   textAlign:left;
+   fontWeight:normal;
+   fontSize:14px;
+   paddingLeft:5px;
+   paddingRight:5px;
+}
+
+.sideTabs {
+   verticalGap:10px;
+   paddingLeft:5px;
+}
+
+.sidePanel {
+   backgroundAlpha:1.0;
+   backgroundColor:#ffffff;
+   borderSides:"left,top,bottom";
+   borderThickness:1;
+   borderStyle:solid;
+   borderColor:#404040;
+   verticalGap:0;
+}
+
+.panelBox {
+   paddingLeft:10px;
+   paddingTop:8px;
+   horizontalGap:5px;
+}
+
+.impedimentList {
+   borderThickness:0px;
+   paddingTop:10px;
+   paddingRight:10px;
+}
+
+FilterPanel {
+   backgroundColor:#ffffff;
+   borderColor:#3679b0;
+   borderThickness:2px;
+   borderStyle:solid;
+   paddingTop:5;
+   paddingLeft:5;
+}
+
+.filterHeading {
+   fontSize:16;
+   color:#3679b0;
+}

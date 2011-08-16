@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml">
+   <mx:Text id="message" width="100%" textAlign="center"/>
+   <mx:HBox width="100%" horizontalAlign="center">
+      <mx:Button id="btnAccept" label="Yes" click="this.visible = false; dispatchEvent(new CloseEvent(CloseEvent.CLOSE,false,false,Alert.YES))"/>
+      <mx:Button id="btnReject" label="No" click="this.visible = false; dispatchEvent(new CloseEvent(CloseEvent.CLOSE,false,false,Alert.NO))"/>
+   </mx:HBox>
+   <mx:Script><![CDATA[
+      import mx.controls.Alert;
+      import mx.events.CloseEvent;
+      ]]></mx:Script>
+</mx:TitleWindow>

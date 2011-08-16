@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Form xmlns:mx="http://www.adobe.com/2006/mxml" 
+         styleName="unpadded" width="100%" height="100%" verticalGap="8" defaultButton="{btnSave}">
+   <mx:StringValidator id="titleValidator" source="{title}" property="text" required="true"
+                       trigger="{btnSave}" triggerEvent="click"/>
+   <mx:StringValidator id="referenceValidator" source="{reference}" property="text"
+                       required="true" trigger="{btnSave}" triggerEvent="click"/>
+   <mx:StringValidator id="dateValidator" source="{startDate}" property="text"
+                       required="true" trigger="{btnSave}" triggerEvent="click"/>
+   <mx:FormItem required="true" label="Title">
+      <mx:TextInput id="title" width="250"/>
+   </mx:FormItem>
+   <mx:FormItem required="true" label="Reference">
+      <mx:TextInput id="reference" width="250"/>
+   </mx:FormItem>
+   <mx:FormItem required="true" label="Methodology">
+      <mx:ComboBox id="methodology" width="90"/>
+   </mx:FormItem>
+   <mx:FormItem required="true" label="Effort Unit">
+      <mx:ComboBox id="effortUnit" width="90"/>
+   </mx:FormItem>
+   <mx:FormItem required="true" label="Start Date">
+      <mx:DateField id="startDate" formatString="DD/MM/YYYY"/>
+   </mx:FormItem>
+   <mx:FormItem label="Description">
+      <mx:TextArea id="description" width="250" height="150"/>
+   </mx:FormItem>
+   <mx:HBox id="formButtons" width="100%" height="100%" horizontalAlign="right" verticalAlign="bottom">
+      <mx:Button id="btnSave" />
+      <mx:LinkButton id="btnCancel" styleName="form" label="Cancel"/>
+   </mx:HBox>
+</mx:Form>

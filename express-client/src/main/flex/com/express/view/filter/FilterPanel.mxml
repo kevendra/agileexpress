@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" width="330" height="200" dropShadowEnabled="true">
+   <mx:Label styleName="filterHeading" text="Backlog Filter"/>
+   <mx:HBox>
+      <mx:Label text="Theme(s)"/>
+      <mx:List id="lstTheme" labelField="title" width="240" height="90" selectable="true"
+                     allowMultipleSelection="true"/>
+   </mx:HBox>
+   <mx:HBox styleName="buttonBox" width="100%" height="100%" >
+      <mx:Button id="btnFilter" label="Apply Filter" enabled="{lstTheme.selectedItem}"/>
+      <mx:LinkButton id="lnkCancel" styleName="form" label="cancel"/>
+   </mx:HBox>
+</mx:VBox>

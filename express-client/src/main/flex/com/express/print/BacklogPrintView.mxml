@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml"
+                         xmlns:comp="com.express.view.components.*"
+                         width="800" height="450" backgroundColor="#ffffff">
+   <mx:HBox width="100%" horizontalAlign="right">
+      <mx:Label text=""/>
+      <mx:LinkButton id="lnkPrint" icon="@Embed('/images/icons/print.png')" label="Print"/>
+   </mx:HBox>
+   <mx:VBox id="pages" width="780" verticalScrollPolicy="off" horizontalScrollPolicy="off"/>
+</mx:VBox>

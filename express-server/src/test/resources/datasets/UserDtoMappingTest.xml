@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+   <express_user user_id="10" version_no="1" email="test@test.test" />
+   <project project_id="102" version_no="1" />
+   <project_worker worker_id="20" version_no="1" user_id="10" project_id="102" />
+</dataset>

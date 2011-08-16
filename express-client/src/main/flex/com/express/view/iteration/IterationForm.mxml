@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Form xmlns:mx="http://www.adobe.com/2006/mxml"
+         defaultButton="{btnSave}" styleName="unpadded" width="100%" height="100%" verticalGap="8">
+   <mx:StringValidator id="titleValidator" required="true" property="text" source="{iterationTitle}"
+          trigger="{btnSave}" triggerEvent="click"/>
+   <mx:StringValidator id="startValidator" required="true" source="{startDate}" property="text"
+          trigger="{btnSave}" triggerEvent="click"/>
+   <mx:StringValidator id="endValidator" required="true" source="{endDate}" property="text"
+          trigger="{btnSave}" triggerEvent="click"/>
+
+   <mx:FormItem label="Title" required="true" width="95%">
+      <mx:TextInput id="iterationTitle" width="100%"/>
+   </mx:FormItem>
+   <mx:FormItem label="Goal" width="95%">
+      <mx:TextArea id="goal" width="100%" height="200"/>
+   </mx:FormItem>
+   <mx:FormItem label="Start Date" required="true">
+      <mx:DateField id="startDate" formatString="DD/MM/YYYY"/>
+   </mx:FormItem>
+   <mx:FormItem label="End Date" required="true">
+      <mx:DateField id="endDate" formatString="DD/MM/YYYY"/>
+   </mx:FormItem>
+   <mx:HBox width="100%" height="100%" verticalAlign="bottom" horizontalAlign="right">
+      <mx:Button id="btnSave" label="Create"/>
+      <mx:LinkButton id="btnCancel" styleName="form" label="cancel"/>
+   </mx:HBox>
+</mx:Form>
